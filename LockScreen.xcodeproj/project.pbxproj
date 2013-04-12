@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E418831717831C00B63C2D /* SenTestingKit.framework */; };
+		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
+		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
+		B1E41893171783CD00B63C2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1E41891171783CD00B63C2D /* InfoPlist.strings */; };
+		B1E41896171783CD00B63C2D /* LSTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E41895171783CD00B63C2D /* LSTest.m */; };
+		B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */; };
+		B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */; };
+		B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0F7168A59E200013CCB /* LSPassword.m */; };
+		B1E418A01717884800B63C2D /* LSPasswordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E4189F1717884800B63C2D /* LSPasswordTests.m */; };
+		B1E4192A1718774100B63C2D /* LSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E419291718774100B63C2D /* LSUtils.m */; };
+		B1E4192B1718774100B63C2D /* LSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E419291718774100B63C2D /* LSUtils.m */; };
+		B1E4192E1718779400B63C2D /* LSUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E4192D1718779400B63C2D /* LSUtilsTest.m */; };
 		B1E7C0CF168A576000013CCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E7C0D1168A576000013CCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
 		B1E7C0D3168A576000013CCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D2168A576000013CCB /* CoreGraphics.framework */; };
@@ -16,9 +28,26 @@
 		B1E7C0E1168A576000013CCB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E7C0E0168A576000013CCB /* Default.png */; };
 		B1E7C0E3168A576000013CCB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E7C0E2168A576000013CCB /* Default@2x.png */; };
 		B1E7C0E5168A576000013CCB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E7C0E4168A576000013CCB /* Default-568h@2x.png */; };
+		B1E7C0ED168A577B00013CCB /* LSPasswordCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */; };
+		B1E7C0F8168A59E200013CCB /* LSPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0F7168A59E200013CCB /* LSPassword.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacterTests.h; path = ../LockScreen/LSPasswordCharacterTests.h; sourceTree = "<group>"; };
+		B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacterTests.m; path = ../LockScreen/LSPasswordCharacterTests.m; sourceTree = "<group>"; };
+		B1E418831717831C00B63C2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B1E4188A171783CD00B63C2D /* LSTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E41890171783CD00B63C2D /* LSTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSTest-Info.plist"; sourceTree = "<group>"; };
+		B1E41892171783CD00B63C2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1E41894171783CD00B63C2D /* LSTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTest.h; sourceTree = "<group>"; };
+		B1E41895171783CD00B63C2D /* LSTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTest.m; sourceTree = "<group>"; };
+		B1E41897171783CD00B63C2D /* LSTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSTest-Prefix.pch"; sourceTree = "<group>"; };
+		B1E4189E1717884800B63C2D /* LSPasswordTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPasswordTests.h; sourceTree = "<group>"; };
+		B1E4189F1717884800B63C2D /* LSPasswordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPasswordTests.m; sourceTree = "<group>"; };
+		B1E419281718774100B63C2D /* LSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSUtils.h; sourceTree = "<group>"; };
+		B1E419291718774100B63C2D /* LSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSUtils.m; sourceTree = "<group>"; };
+		B1E4192C1718779400B63C2D /* LSUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSUtilsTest.h; sourceTree = "<group>"; };
+		B1E4192D1718779400B63C2D /* LSUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSUtilsTest.m; sourceTree = "<group>"; };
 		B1E7C0CA168A576000013CCB /* LockScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E7C0CE168A576000013CCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1E7C0D0168A576000013CCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -32,9 +61,23 @@
 		B1E7C0E0168A576000013CCB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B1E7C0E2168A576000013CCB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B1E7C0E4168A576000013CCB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B1E7C0EB168A577B00013CCB /* LSPasswordCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacter.h; path = Model/LSPasswordCharacter.h; sourceTree = "<group>"; };
+		B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacter.m; path = Model/LSPasswordCharacter.m; sourceTree = "<group>"; };
+		B1E7C0F6168A59E200013CCB /* LSPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPassword.h; path = Model/LSPassword.h; sourceTree = "<group>"; };
+		B1E7C0F7168A59E200013CCB /* LSPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPassword.m; path = Model/LSPassword.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B1E41886171783CD00B63C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */,
+				B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */,
+				B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E7C0C7168A576000013CCB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,10 +91,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1E4188E171783CD00B63C2D /* LSTest */ = {
+			isa = PBXGroup;
+			children = (
+				B1E41894171783CD00B63C2D /* LSTest.h */,
+				B1E41895171783CD00B63C2D /* LSTest.m */,
+				B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */,
+				B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */,
+				B1E4189E1717884800B63C2D /* LSPasswordTests.h */,
+				B1E4189F1717884800B63C2D /* LSPasswordTests.m */,
+				B1E4192C1718779400B63C2D /* LSUtilsTest.h */,
+				B1E4192D1718779400B63C2D /* LSUtilsTest.m */,
+				B1E4188F171783CD00B63C2D /* Supporting Files */,
+			);
+			path = LSTest;
+			sourceTree = "<group>";
+		};
+		B1E4188F171783CD00B63C2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1E41890171783CD00B63C2D /* LSTest-Info.plist */,
+				B1E41891171783CD00B63C2D /* InfoPlist.strings */,
+				B1E41897171783CD00B63C2D /* LSTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B1E7C0BF168A576000013CCB = {
 			isa = PBXGroup;
 			children = (
 				B1E7C0D4168A576000013CCB /* LockScreen */,
+				B1E4188E171783CD00B63C2D /* LSTest */,
 				B1E7C0CD168A576000013CCB /* Frameworks */,
 				B1E7C0CB168A576000013CCB /* Products */,
 			);
@@ -61,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B1E7C0CA168A576000013CCB /* LockScreen.app */,
+				B1E4188A171783CD00B63C2D /* LSTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +139,7 @@
 		B1E7C0CD168A576000013CCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1E418831717831C00B63C2D /* SenTestingKit.framework */,
 				B1E7C0CE168A576000013CCB /* UIKit.framework */,
 				B1E7C0D0168A576000013CCB /* Foundation.framework */,
 				B1E7C0D2168A576000013CCB /* CoreGraphics.framework */,
@@ -80,6 +152,8 @@
 			children = (
 				B1E7C0DD168A576000013CCB /* LSAppDelegate.h */,
 				B1E7C0DE168A576000013CCB /* LSAppDelegate.m */,
+				B1E7C0F2168A57AB00013CCB /* Controllers */,
+				B1E7C0EE168A577E00013CCB /* Model */,
 				B1E7C0D5168A576000013CCB /* Supporting Files */,
 			);
 			path = LockScreen;
@@ -99,9 +173,47 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B1E7C0EE168A577E00013CCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1E7C0F6168A59E200013CCB /* LSPassword.h */,
+				B1E7C0F7168A59E200013CCB /* LSPassword.m */,
+				B1E7C0EB168A577B00013CCB /* LSPasswordCharacter.h */,
+				B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B1E7C0F2168A57AB00013CCB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1E419281718774100B63C2D /* LSUtils.h */,
+				B1E419291718774100B63C2D /* LSUtils.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B1E41889171783CD00B63C2D /* LSTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1E41898171783CD00B63C2D /* Build configuration list for PBXNativeTarget "LSTest" */;
+			buildPhases = (
+				B1E41885171783CD00B63C2D /* Sources */,
+				B1E41886171783CD00B63C2D /* Frameworks */,
+				B1E41887171783CD00B63C2D /* Resources */,
+				B1E41888171783CD00B63C2D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LSTest;
+			productName = LSTest;
+			productReference = B1E4188A171783CD00B63C2D /* LSTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		B1E7C0C9168A576000013CCB /* LockScreen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1E7C0E8168A576000013CCB /* Build configuration list for PBXNativeTarget "LockScreen" */;
@@ -142,11 +254,20 @@
 			projectRoot = "";
 			targets = (
 				B1E7C0C9168A576000013CCB /* LockScreen */,
+				B1E41889171783CD00B63C2D /* LSTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B1E41887171783CD00B63C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E41893171783CD00B63C2D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E7C0C8168A576000013CCB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,19 +281,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B1E41888171783CD00B63C2D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		B1E41885171783CD00B63C2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E41896171783CD00B63C2D /* LSTest.m in Sources */,
+				B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */,
+				B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */,
+				B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */,
+				B1E418A01717884800B63C2D /* LSPasswordTests.m in Sources */,
+				B1E4192B1718774100B63C2D /* LSUtils.m in Sources */,
+				B1E4192E1718779400B63C2D /* LSUtilsTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1E7C0C6168A576000013CCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B1E7C0DB168A576000013CCB /* main.m in Sources */,
 				B1E7C0DF168A576000013CCB /* LSAppDelegate.m in Sources */,
+				B1E7C0ED168A577B00013CCB /* LSPasswordCharacter.m in Sources */,
+				B1E7C0F8168A59E200013CCB /* LSPassword.m in Sources */,
+				B1E4192A1718774100B63C2D /* LSUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B1E41891171783CD00B63C2D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1E41892171783CD00B63C2D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B1E7C0D7168A576000013CCB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -184,6 +346,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B1E41899171783CD00B63C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LSTest/LSTest-Prefix.pch";
+				INFOPLIST_FILE = "LSTest/LSTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B1E4189A171783CD00B63C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LSTest/LSTest-Prefix.pch";
+				INFOPLIST_FILE = "LSTest/LSTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		B1E7C0E6168A576000013CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -236,6 +439,10 @@
 		B1E7C0E9168A576000013CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LockScreen/LockScreen-Prefix.pch";
 				INFOPLIST_FILE = "LockScreen/LockScreen-Info.plist";
@@ -247,6 +454,10 @@
 		B1E7C0EA168A576000013CCB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LockScreen/LockScreen-Prefix.pch";
 				INFOPLIST_FILE = "LockScreen/LockScreen-Info.plist";
@@ -258,6 +469,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B1E41898171783CD00B63C2D /* Build configuration list for PBXNativeTarget "LSTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E41899171783CD00B63C2D /* Debug */,
+				B1E4189A171783CD00B63C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1E7C0C4168A576000013CCB /* Build configuration list for PBXProject "LockScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -274,6 +494,7 @@
 				B1E7C0EA168A576000013CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
