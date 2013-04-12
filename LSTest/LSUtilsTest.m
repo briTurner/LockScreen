@@ -20,6 +20,7 @@
 @implementation LSUtilsTest
 
 - (void)setUp {
+        [super setUp];
     masterPassword = [[LSPassword alloc] init];
  
     LSPasswordCharacter *red = [[LSPasswordCharacter alloc] initWithCharacterAttributes:LSPasswordCharacterAttributeColorRed];

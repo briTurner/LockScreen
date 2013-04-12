@@ -19,7 +19,16 @@
 @implementation LSPasswordCharacterTests
 
 - (void)setUp {
+    [super setUp];
     character1 = [[LSPasswordCharacter alloc] init];
+}
+
+- (void)testRandomPasswordCharacter {
+    NSString *failString = @"Random character generation failed";
+    LSPasswordCharacter *randomCharacter = [LSPasswordCharacter randomCharacter];
+    STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed), failString);
+    STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall), failString);
+        STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeShapeHouse | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle), failString);
 }
 
 - (void)testInitWithCharacterAttributes {

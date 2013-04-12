@@ -23,6 +23,7 @@
 @implementation LSPasswordTests
 
 - (void)setUp {
+        [super setUp];
     password = [[LSPassword alloc] init];
     
     
@@ -48,13 +49,13 @@
     STAssertTrue([[password passwordCharacters] objectAtIndex:1] == blue, @"password character addiction failing");
 }
 
-- (void)testPasswordCharacterInsert {
+- (void)testSetPasswordCharacterAtIndex {
     STAssertTrue([[password passwordCharacters] count] == 0, @"password characters are not starting off as nothing");
-    [password setPasswordCharacterCharacter:redHouse atIndex:0];
+    [password setPasswordCharacter:redHouse atIndex:0];
     STAssertTrue([[password passwordCharacters] objectAtIndex:0] == redHouse, @"password character set failing");
-    [password setPasswordCharacterCharacter:blue atIndex:0];
+    [password setPasswordCharacter:blue atIndex:0];
     STAssertTrue([[password passwordCharacters] objectAtIndex:0] == blue, @"password character set failing");
-    [password setPasswordCharacterCharacter:redHouse atIndex:1];
+    [password setPasswordCharacter:redHouse atIndex:1];
     NSArray *characterArray = @[blue, redHouse];
     STAssertTrue([[password passwordCharacters] isEqualToArray:characterArray], @"password character set failing");
 }

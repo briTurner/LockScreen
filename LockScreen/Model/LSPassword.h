@@ -13,6 +13,6 @@
 
 @property (nonatomic, readonly) NSMutableArray *passwordCharacters;
 - (void)addPasswordCharacter:(LSPasswordCharacter *)passwordChar;
-- (void)setPasswordCharacterCharacter:(LSPasswordCharacter *)passwordCharacter atIndex:(NSInteger)index;
+- (void)setPasswordCharacter:(LSPasswordCharacter *)passwordCharacter atIndex:(NSInteger)index;
 - (BOOL)meetsRequirmentsOfPassword:(LSPassword *)password;
 @end

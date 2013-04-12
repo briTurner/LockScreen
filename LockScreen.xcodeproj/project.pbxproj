@@ -11,7 +11,6 @@
 		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
 		B1E41893171783CD00B63C2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1E41891171783CD00B63C2D /* InfoPlist.strings */; };
-		B1E41896171783CD00B63C2D /* LSTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E41895171783CD00B63C2D /* LSTest.m */; };
 		B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */; };
 		B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */; };
 		B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0F7168A59E200013CCB /* LSPassword.m */; };
@@ -39,8 +38,6 @@
 		B1E4188A171783CD00B63C2D /* LSTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E41890171783CD00B63C2D /* LSTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSTest-Info.plist"; sourceTree = "<group>"; };
 		B1E41892171783CD00B63C2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B1E41894171783CD00B63C2D /* LSTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTest.h; sourceTree = "<group>"; };
-		B1E41895171783CD00B63C2D /* LSTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTest.m; sourceTree = "<group>"; };
 		B1E41897171783CD00B63C2D /* LSTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSTest-Prefix.pch"; sourceTree = "<group>"; };
 		B1E4189E1717884800B63C2D /* LSPasswordTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPasswordTests.h; sourceTree = "<group>"; };
 		B1E4189F1717884800B63C2D /* LSPasswordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPasswordTests.m; sourceTree = "<group>"; };
@@ -94,8 +91,6 @@
 		B1E4188E171783CD00B63C2D /* LSTest */ = {
 			isa = PBXGroup;
 			children = (
-				B1E41894171783CD00B63C2D /* LSTest.h */,
-				B1E41895171783CD00B63C2D /* LSTest.m */,
 				B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */,
 				B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */,
 				B1E4189E1717884800B63C2D /* LSPasswordTests.h */,
@@ -302,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E41896171783CD00B63C2D /* LSTest.m in Sources */,
 				B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */,
 				B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */,
 				B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */,

@@ -29,7 +29,7 @@
     [_passwordCharacters addObject:passwordChar];
 }
 
-- (void)setPasswordCharacterCharacter:(LSPasswordCharacter *)passwordCharacter atIndex:(NSInteger)index {
+- (void)setPasswordCharacter:(LSPasswordCharacter *)passwordCharacter atIndex:(NSInteger)index {
     if (index == [[self passwordCharacters] count])
         [self addPasswordCharacter:passwordCharacter];
     else if (index < [[self passwordCharacters] count])
