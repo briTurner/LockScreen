@@ -24,7 +24,7 @@
     masterPassword = [[LSPassword alloc] init];
  
     LSPasswordCharacter *red = [[LSPasswordCharacter alloc] initWithCharacterAttributes:LSPasswordCharacterAttributeColorRed];
-    LSPasswordCharacter *blueHouse = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeHouse)];
+    LSPasswordCharacter *blueHouse = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle)];
     LSPasswordCharacter *mediumTriamgle = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeShapeTriangle)];
     
     [masterPassword addPasswordCharacter:red];

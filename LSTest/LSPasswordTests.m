@@ -29,7 +29,7 @@
     
     redHouse = [[LSPasswordCharacter alloc] init];
     [redHouse addCharacterAttribute:LSPasswordCharacterAttributeColorRed];
-    [redHouse addCharacterAttribute:LSPasswordCharacterAttributeShapeHouse];
+    [redHouse addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
     
     blue = [[LSPasswordCharacter alloc] init];
     [blue addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
@@ -81,7 +81,7 @@
     STAssertFalse([masterPassword meetsRequirmentsOfPassword:password], @"password matching not working correctly");
     
     STAssertTrue([password meetsRequirmentsOfPassword:masterPassword], @"passowrd matching not working correctly");
-    [medium addCharacterAttribute:LSPasswordCharacterAttributeShapeHouse];
+    [medium addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
     STAssertFalse([password meetsRequirmentsOfPassword:masterPassword], @"passowrd matching not working correctly");
 }
 @end

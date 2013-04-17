@@ -53,6 +53,18 @@ static int numberOfAttributes = 3;
     return ([self characterAttributes] | [passwordCharacter characterAttributes]) == [self characterAttributes];
 }
 
+- (LSPasswordCharacterAttribute)size {
+    return ([self characterAttributes] & (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall));
+}
+
+- (LSPasswordCharacterAttribute)shape {
+      return ([self characterAttributes] & (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle));
+}
+
+- (LSPasswordCharacterAttribute)color {
+          return ([self characterAttributes] & (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed));
+}
+
 + (NSArray *)sizes {
     return @[@"Small", @"Medium", @"Large"];
 }

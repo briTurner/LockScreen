@@ -23,7 +23,7 @@ typedef enum {
     //Shapes
     LSPasswordCharacterAttributeShapeSquare = 1 << 6,
     LSPasswordCharacterAttributeShapeTriangle = 1 << 7,
-    LSPasswordCharacterAttributeShapeHouse = 1 << 8,
+    LSPasswordCharacterAttributeShapeCircle = 1 << 8,
 } LSPasswordCharacterAttribute;
 
 @interface LSPasswordCharacter : NSObject {
@@ -36,6 +36,10 @@ typedef enum {
 
 - (void)addCharacterAttribute:(LSPasswordCharacterAttribute)attribute;
 - (BOOL)meetsRequirmentsOfCharacter:(LSPasswordCharacter *)passwordCharacter;
+
+- (LSPasswordCharacterAttribute)size;
+- (LSPasswordCharacterAttribute)shape;
+- (LSPasswordCharacterAttribute)color;
 
 + (NSArray *)sizes;
 + (NSArray *)colors;

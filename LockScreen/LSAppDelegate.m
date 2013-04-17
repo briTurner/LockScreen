@@ -7,15 +7,15 @@
 //
 
 #import "LSAppDelegate.h"
-
+#import "LSTestScreenViewController.h"
 
 @implementation LSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-
+    LSTestScreenViewController *vc = [[LSTestScreenViewController alloc] initWithNibName:nil bundle:nil];
+    [[self window] setRootViewController:vc];
     [self.window makeKeyAndVisible];
     return YES;
 }

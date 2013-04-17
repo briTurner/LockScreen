@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
+		B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
+		B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D2168A576000013CCB /* CoreGraphics.framework */; };
+		B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
+		B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
 		B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E418831717831C00B63C2D /* SenTestingKit.framework */; };
 		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
@@ -32,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B16CE60C171EE9E600976F97 /* LSImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageFactory.h; sourceTree = "<group>"; };
+		B16CE60D171EE9E600976F97 /* LSImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageFactory.m; sourceTree = "<group>"; };
+		B16CE63F171F0F5A00976F97 /* LSTestScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTestScreenViewController.h; sourceTree = "<group>"; };
+		B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTestScreenViewController.m; sourceTree = "<group>"; };
 		B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacterTests.h; path = ../LockScreen/LSPasswordCharacterTests.h; sourceTree = "<group>"; };
 		B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacterTests.m; path = ../LockScreen/LSPasswordCharacterTests.m; sourceTree = "<group>"; };
 		B1E418831717831C00B63C2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -53,8 +62,8 @@
 		B1E7C0D8168A576000013CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1E7C0DA168A576000013CCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1E7C0DC168A576000013CCB /* LockScreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LockScreen-Prefix.pch"; sourceTree = "<group>"; };
-		B1E7C0DD168A576000013CCB /* LSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSAppDelegate.h; sourceTree = "<group>"; };
-		B1E7C0DE168A576000013CCB /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSAppDelegate.m; sourceTree = "<group>"; };
+		B1E7C0DD168A576000013CCB /* LSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LSAppDelegate.h; path = ../LockScreen/LSAppDelegate.h; sourceTree = "<group>"; };
+		B1E7C0DE168A576000013CCB /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LSAppDelegate.m; path = ../LockScreen/LSAppDelegate.m; sourceTree = "<group>"; };
 		B1E7C0E0168A576000013CCB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B1E7C0E2168A576000013CCB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B1E7C0E4168A576000013CCB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -69,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */,
 				B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */,
 				B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */,
 				B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */,
@@ -105,11 +115,24 @@
 		B1E4188F171783CD00B63C2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1E7C0DD168A576000013CCB /* LSAppDelegate.h */,
+				B1E7C0DE168A576000013CCB /* LSAppDelegate.m */,
 				B1E41890171783CD00B63C2D /* LSTest-Info.plist */,
 				B1E41891171783CD00B63C2D /* InfoPlist.strings */,
 				B1E41897171783CD00B63C2D /* LSTest-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1E4192F1718882500B63C2D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B1E419281718774100B63C2D /* LSUtils.h */,
+				B1E419291718774100B63C2D /* LSUtils.m */,
+				B16CE60C171EE9E600976F97 /* LSImageFactory.h */,
+				B16CE60D171EE9E600976F97 /* LSImageFactory.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		B1E7C0BF168A576000013CCB = {
@@ -145,10 +168,9 @@
 		B1E7C0D4168A576000013CCB /* LockScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B1E7C0DD168A576000013CCB /* LSAppDelegate.h */,
-				B1E7C0DE168A576000013CCB /* LSAppDelegate.m */,
 				B1E7C0F2168A57AB00013CCB /* Controllers */,
 				B1E7C0EE168A577E00013CCB /* Model */,
+				B1E4192F1718882500B63C2D /* Util */,
 				B1E7C0D5168A576000013CCB /* Supporting Files */,
 			);
 			path = LockScreen;
@@ -182,8 +204,8 @@
 		B1E7C0F2168A57AB00013CCB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1E419281718774100B63C2D /* LSUtils.h */,
-				B1E419291718774100B63C2D /* LSUtils.m */,
+				B16CE63F171F0F5A00976F97 /* LSTestScreenViewController.h */,
+				B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +325,8 @@
 				B1E418A01717884800B63C2D /* LSPasswordTests.m in Sources */,
 				B1E4192B1718774100B63C2D /* LSUtils.m in Sources */,
 				B1E4192E1718779400B63C2D /* LSUtilsTest.m in Sources */,
+				B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */,
+				B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +339,8 @@
 				B1E7C0ED168A577B00013CCB /* LSPasswordCharacter.m in Sources */,
 				B1E7C0F8168A59E200013CCB /* LSPassword.m in Sources */,
 				B1E4192A1718774100B63C2D /* LSUtils.m in Sources */,
+				B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */,
+				B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
