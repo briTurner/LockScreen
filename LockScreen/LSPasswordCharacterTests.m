@@ -67,6 +67,7 @@
     [character1 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
     [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
     STAssertTrue([character1 size] == LSPasswordCharacterAttributeSizeLarge, @"size is failing");
+    STAssertFalse([character1 size] == LSPasswordCharacterAttributeSizeMedium, @"size is failing");
 }
 
 - (void)testShape {

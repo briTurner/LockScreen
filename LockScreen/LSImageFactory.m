@@ -19,7 +19,7 @@ int sizeConst = 20;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     float multiplier = 0;
-    switch ([character size]) {
+    switch ([character sizeOrRandom]) {
         case LSPasswordCharacterAttributeSizeLarge:
             multiplier = 2;
             break;
@@ -38,7 +38,7 @@ int sizeConst = 20;
     
     CGPoint center = CGPointMake(50, 50);
     CGFloat offset = sizeConst * multiplier;
-    switch ([character shape]) {
+    switch ([character shapeOrRandom]) {
         case LSPasswordCharacterAttributeShapeCircle:
             [path addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
             break;
@@ -59,7 +59,7 @@ int sizeConst = 20;
     }
     [path closePath];
     
-    switch ([character color]) {
+    switch ([character colorOrRandom]) {
         case LSPasswordCharacterAttributeColorBlue:
             CGContextSetStrokeColorWithColor(context, [[UIColor blueColor] CGColor]);
             CGContextSetFillColorWithColor(context, [[UIColor blueColor] CGColor]);

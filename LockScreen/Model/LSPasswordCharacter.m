@@ -55,6 +55,11 @@ static int numberOfAttributes = 3;
 
 - (LSPasswordCharacterAttribute)size {
     LSPasswordCharacterAttribute size = ([self characterAttributes] & (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall));
+    return size;
+}
+
+- (LSPasswordCharacterAttribute)sizeOrRandom {
+    LSPasswordCharacterAttribute size = [self size];
     if (size == LSPasswordCharacterAttributeNone)
         size = [self randomSize];
     return size;
@@ -62,6 +67,11 @@ static int numberOfAttributes = 3;
 
 - (LSPasswordCharacterAttribute)shape {
     LSPasswordCharacterAttribute shape = ([self characterAttributes] & (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle));
+    return shape;
+}
+
+- (LSPasswordCharacterAttribute)shapeOrRandom {
+    LSPasswordCharacterAttribute shape = [self shape];
     if (shape == LSPasswordCharacterAttributeNone)
         shape = [self randomShape];
     return shape;
@@ -69,6 +79,13 @@ static int numberOfAttributes = 3;
 
 - (LSPasswordCharacterAttribute)color {
     LSPasswordCharacterAttribute color = ([self characterAttributes] & (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed));
+    if (color == LSPasswordCharacterAttributeNone)
+        color = [self randomColor];
+    return color;
+}
+
+- (LSPasswordCharacterAttribute)colorOrRandom {
+    LSPasswordCharacterAttribute color = [self color];
     if (color == LSPasswordCharacterAttributeNone)
         color = [self randomColor];
     return color;
