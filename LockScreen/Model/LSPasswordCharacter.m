@@ -86,5 +86,9 @@ static int numberOfAttributes = 3;
     return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeColorBlue], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorGreen], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorRed]][arc4random() % 3] intValue];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ Color: %i, Shape: %i, Size: %i", [super description], [self color], [self shape], [self size]];
+}
+
 
 @end
