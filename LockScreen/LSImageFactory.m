@@ -15,21 +15,25 @@ int sizeConst = 20;
 @implementation LSImageFactory
 
 + (UIImage *)imageForPasswordCharacter:(LSPasswordCharacter *)character {
+    UIColor *greenColor = [UIColor colorWithRed:0.376 green:0.812 blue:0.169 alpha:1.000];
+    
     UIGraphicsBeginImageContext(CGSizeMake(100, 100));
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     NSArray *multipliers = @[@0, @.55, @1.2, @2];
-    float multiplier = [multipliers[[character size]] floatValue];
+    float sizeMultiplier = [[multipliers objectAtIndex:[character size]] floatValue];
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
     UIBezierPath *outlines = [[UIBezierPath alloc] init];
     
     CGPoint center = CGPointMake(50, 50);
-    CGFloat offset = sizeConst * multiplier;
+    CGFloat offset = sizeConst * sizeMultiplier;
     switch ([character shape]) {
         case LSPasswordCharacterShapeCircle:
             [path addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
             for (NSNumber *multiplier in multipliers) {
+                if ([multiplier floatValue] == sizeMultiplier)
+                    continue;
                 offset = sizeConst * [multiplier floatValue];
                 [outlines moveToPoint:CGPointMake(50 + offset, 50)];
                 [outlines addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
@@ -42,6 +46,8 @@ int sizeConst = 20;
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             
             for (NSNumber *multiplier in multipliers) {
+                if ([multiplier floatValue] == sizeMultiplier)
+                    continue;
                 offset = sizeConst * [multiplier floatValue];
                 [outlines moveToPoint:CGPointMake(center.x, center.y + offset)];
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
@@ -57,6 +63,8 @@ int sizeConst = 20;
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             
             for (NSNumber *multiplier in multipliers) {
+                if ([multiplier floatValue] == sizeMultiplier)
+                    continue;
                 offset = sizeConst * [multiplier floatValue];
                 [outlines moveToPoint:CGPointMake(center.x - offset, center.y + offset)];
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
@@ -80,8 +88,8 @@ int sizeConst = 20;
             CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
             break;
         case LSPasswordCharacterColorGreen:
-            CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
-            CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
+            CGContextSetStrokeColorWithColor(context, [greenColor CGColor]);
+            CGContextSetFillColorWithColor(context, [greenColor CGColor]);
             break;
         default:
             break;
