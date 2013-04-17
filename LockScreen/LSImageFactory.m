@@ -18,35 +18,36 @@ int sizeConst = 20;
     UIGraphicsBeginImageContext(CGSizeMake(100, 100));
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    float multiplier = 0;
-    switch ([character size]) {
-        case LSPasswordCharacterSizeLarge:
-            multiplier = 2;
-            break;
-        case LSPasswordCharacterSizeMedium:
-            multiplier = 1;
-            break;
-        case LSPasswordCharacterSizeSmall:
-            multiplier = .5;
-            break;
-        default: {
-            NSLog(@"something went wrong with size");
-            break;
-        }
-    }
+    NSArray *multipliers = @[@0, @.55, @1.2, @2];
+    float multiplier = [multipliers[[character size]] floatValue];
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
+    UIBezierPath *outlines = [[UIBezierPath alloc] init];
     
     CGPoint center = CGPointMake(50, 50);
     CGFloat offset = sizeConst * multiplier;
     switch ([character shape]) {
         case LSPasswordCharacterShapeCircle:
             [path addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+            for (NSNumber *multiplier in multipliers) {
+                offset = sizeConst * [multiplier floatValue];
+                [outlines moveToPoint:CGPointMake(50 + offset, 50)];
+                [outlines addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+                [outlines closePath];
+            }
             break;
         case LSPasswordCharacterShapeTriangle: {
             [path moveToPoint:CGPointMake(center.x, center.y + offset)];
             [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
+            
+            for (NSNumber *multiplier in multipliers) {
+                offset = sizeConst * [multiplier floatValue];
+                [outlines moveToPoint:CGPointMake(center.x, center.y + offset)];
+                [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
+                [outlines addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
+                [outlines closePath];
+            }
             break;
         }
         case LSPasswordCharacterShapeSquare:
@@ -54,9 +55,17 @@ int sizeConst = 20;
             [path addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
             [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
+            
+            for (NSNumber *multiplier in multipliers) {
+                offset = sizeConst * [multiplier floatValue];
+                [outlines moveToPoint:CGPointMake(center.x - offset, center.y + offset)];
+                [outlines addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
+                [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
+                [outlines addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
+                [outlines closePath];
+            }
             break;
         default:
-                        NSLog(@"something went wrong with shape");
             break;
     }
     [path closePath];
@@ -75,12 +84,14 @@ int sizeConst = 20;
             CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
             break;
         default:
-            NSLog(@"something went wrong with color");
             break;
     }
     
     [path stroke];
     [path fill];
+
+    CGContextSetStrokeColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    [outlines stroke];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
