@@ -23,12 +23,11 @@
         [super setUp];
     masterPassword = [[LSPassword alloc] init];
  
-    LSPasswordCharacter *red = [[LSPasswordCharacter alloc] initWithCharacterAttributes:LSPasswordCharacterAttributeColorRed];
-    LSPasswordCharacter *blueHouse = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle)];
-    LSPasswordCharacter *mediumTriamgle = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeShapeTriangle)];
-    
+    LSPasswordCharacter *red = [[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorRed size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
+    LSPasswordCharacter *blueCircle = [[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeCircle];
+    LSPasswordCharacter *mediumTriamgle = [[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeMedium shape:LSPasswordCharacterShapeTriangle];
     [masterPassword addPasswordCharacter:red];
-    [masterPassword addPasswordCharacter:blueHouse];
+    [masterPassword addPasswordCharacter:blueCircle];
     [masterPassword addPasswordCharacter:mediumTriamgle];
     
     

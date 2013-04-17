@@ -28,15 +28,15 @@
     
     
     redHouse = [[LSPasswordCharacter alloc] init];
-    [redHouse addCharacterAttribute:LSPasswordCharacterAttributeColorRed];
-    [redHouse addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
+    [redHouse setColor:LSPasswordCharacterColorRed];
+    [redHouse setShape:LSPasswordCharacterShapeCircle];
     
     blue = [[LSPasswordCharacter alloc] init];
-    [blue addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
+    [blue setColor:LSPasswordCharacterColorBlue];
     
     mediumGreen = [[LSPasswordCharacter alloc] init];
-    [mediumGreen addCharacterAttribute:LSPasswordCharacterAttributeSizeMedium];
-    [mediumGreen addCharacterAttribute:LSPasswordCharacterAttributeColorGreen];
+    [mediumGreen setSize:LSPasswordCharacterSizeMedium];
+    [mediumGreen setColor:LSPasswordCharacterColorGreen];
 }
 
 
@@ -69,19 +69,19 @@
     
     LSPassword *masterPassword = [[LSPassword alloc] init];
     LSPasswordCharacter *red = [[LSPasswordCharacter alloc] init];
-    [red addCharacterAttribute:LSPasswordCharacterAttributeColorRed];
+    [red setColor:LSPasswordCharacterColorRed];
     [masterPassword addPasswordCharacter:red];
-    
     [masterPassword addPasswordCharacter:blue];
     
     LSPasswordCharacter *medium = [[LSPasswordCharacter alloc] init];
-    [medium addCharacterAttribute:LSPasswordCharacterAttributeSizeMedium];
+    [medium setSize:LSPasswordCharacterSizeMedium];
     [masterPassword addPasswordCharacter:medium];
     
     STAssertFalse([masterPassword meetsRequirmentsOfPassword:password], @"password matching not working correctly");
     
     STAssertTrue([password meetsRequirmentsOfPassword:masterPassword], @"passowrd matching not working correctly");
-    [medium addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
+    LSPasswordCharacter *large = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeLarge shape:LSPasswordCharacterShapeNone];
+    [password setPasswordCharacter:large atIndex:2];
     STAssertFalse([password meetsRequirmentsOfPassword:masterPassword], @"passowrd matching not working correctly");
 }
 @end

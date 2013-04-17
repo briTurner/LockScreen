@@ -10,8 +10,6 @@
 #import "LSPasswordCharacter.h"
 
 @interface LSPasswordCharacterTests () {
-    LSPasswordCharacter *character1;
-        LSPasswordCharacter *character2;
 }
 
 @end
@@ -19,69 +17,52 @@
 @implementation LSPasswordCharacterTests
 
 - (void)setUp {
-    [super setUp];
-    character1 = [[LSPasswordCharacter alloc] init];
 }
 
 - (void)testRandomPasswordCharacter {
     NSString *failString = @"Random character generation failed";
     LSPasswordCharacter *randomCharacter = [LSPasswordCharacter randomCharacter];
-    STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed), failString);
-    STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall), failString);
-        STAssertTrue([randomCharacter characterAttributes] | (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle), failString);
+    STAssertFalse([randomCharacter color] == LSPasswordCharacterColorNone, @"1");
+    STAssertFalse([randomCharacter size] == LSPasswordCharacterSizeNone, @"2");
+    STAssertFalse([randomCharacter shape] == LSPasswordCharacterShapeNone, failString);
+}
+
+- (void)testCharacterWhichMeetsRequirmentsOfCharacter {
+    LSPasswordCharacter *requirmentsCharacter = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeSquare];
+    
+    LSPasswordCharacter *charToTest = [LSPasswordCharacter characterWhichMeetsRequirmentsOfCharacter:requirmentsCharacter];
+    STAssertTrue([charToTest meetsRequirmentsOfCharacter:requirmentsCharacter], @"meets requirments");
+    STAssertFalse([charToTest color] == LSPasswordCharacterColorNone, @"meets requirments");
+    STAssertFalse([charToTest size] == LSPasswordCharacterSizeNone, @"meets requirments");
 }
 
 - (void)testInitWithCharacterAttributes {
-    LSPasswordCharacter *testCharacter = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle)];
-    STAssertTrue([testCharacter characterAttributes] | LSPasswordCharacterAttributeColorBlue, @"init not working properly");
-    STAssertTrue([testCharacter characterAttributes] | LSPasswordCharacterAttributeShapeCircle, @"init not working properly");
-    STAssertTrue([testCharacter characterAttributes] | LSPasswordCharacterAttributeShapeSquare, @"init not working properly");
-    STAssertTrue([testCharacter characterAttributes] == (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle), @"init not working properly");
+    LSPasswordCharacter *testCharacter = [[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorRed size:LSPasswordCharacterSizeMedium shape:LSPasswordCharacterShapeCircle];
+    STAssertTrue([testCharacter color] == LSPasswordCharacterColorRed, @"init not working properly");
+    STAssertTrue([testCharacter size] == LSPasswordCharacterSizeMedium, @"init not working properly");
+    STAssertTrue([testCharacter shape] == LSPasswordCharacterShapeCircle, @"init not working properly");
 }
 
-- (void)testAddCharacterAttribute {
 
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
-    STAssertTrue([character1 characterAttributes] == LSPasswordCharacterAttributeColorBlue, @"Character attributes is not as expected");
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
-    STAssertFalse([character1 characterAttributes] == LSPasswordCharacterAttributeColorBlue, @"Character attribytes is not as expected");
-    STAssertTrue([character1 characterAttributes] | LSPasswordCharacterAttributeColorBlue, @"charater attributes is not as expected");
+- (void)testMeetsRequirmentsOfCharacter {
+    LSPasswordCharacter *redLargeCircle = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorRed size:LSPasswordCharacterSizeLarge shape:LSPasswordCharacterShapeCircle];
+    LSPasswordCharacter *red = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorRed size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
     
-    character1 = [[LSPasswordCharacter alloc] init];
-    [character1 addCharacterAttribute:(LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeColorBlue)];
-    STAssertTrue([character1 characterAttributes] || LSPasswordCharacterAttributeColorBlue == LSPasswordCharacterAttributeColorBlue, @"charater attributes is not as expected");
+    STAssertTrue([redLargeCircle meetsRequirmentsOfCharacter:red], @"meets requirments of character");
+    STAssertFalse([red meetsRequirmentsOfCharacter:redLargeCircle], @"meets requirments of character");
     
-}
-
-- (void)testMatchesPasswordCharacter {
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeSizeMedium];
     
-    [character2 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
+    LSPasswordCharacter *blue = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
     
-    STAssertTrue([character1 meetsRequirmentsOfCharacter:character2], @"Character matching is not workting correctly");
-    STAssertFalse([character2 meetsRequirmentsOfCharacter:character1], @"Character matching is not workting correctly");
+    STAssertFalse([blue meetsRequirmentsOfCharacter:redLargeCircle], @"meets requirments of character");
+    
 }
 
 - (void)testSize {
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeSizeLarge];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
-    STAssertTrue([character1 size] == LSPasswordCharacterAttributeSizeLarge, @"size is failing");
-    STAssertFalse([character1 size] == LSPasswordCharacterAttributeSizeMedium, @"size is failing");
-}
-
-- (void)testShape {
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeSizeLarge];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
-    STAssertTrue([character1 shape] == LSPasswordCharacterAttributeShapeCircle, @"size is failing");
-}
-
-- (void)testColor {
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeSizeLarge];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeShapeCircle];
-    [character1 addCharacterAttribute:LSPasswordCharacterAttributeColorBlue];
-    STAssertTrue([character1 color] == LSPasswordCharacterAttributeColorBlue, @"size is failing");
+    LSPasswordCharacter *sizeChar = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorRed size:LSPasswordCharacterSizeMedium shape:LSPasswordCharacterShapeSquare];
+    STAssertTrue([sizeChar size] == LSPasswordCharacterSizeMedium, @"size not matching");
+    STAssertFalse([sizeChar size] == LSPasswordCharacterSizeNone, @"size not matching none");
+    
 }
 
 @end

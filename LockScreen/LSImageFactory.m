@@ -19,17 +19,18 @@ int sizeConst = 20;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     float multiplier = 0;
-    switch ([character sizeOrRandom]) {
-        case LSPasswordCharacterAttributeSizeLarge:
+    switch ([character size]) {
+        case LSPasswordCharacterSizeLarge:
             multiplier = 2;
             break;
-        case LSPasswordCharacterAttributeSizeMedium:
+        case LSPasswordCharacterSizeMedium:
             multiplier = 1;
             break;
-        case LSPasswordCharacterAttributeSizeSmall:
+        case LSPasswordCharacterSizeSmall:
             multiplier = .5;
             break;
         default: {
+            NSLog(@"something went wrong with size");
             break;
         }
     }
@@ -38,43 +39,43 @@ int sizeConst = 20;
     
     CGPoint center = CGPointMake(50, 50);
     CGFloat offset = sizeConst * multiplier;
-    switch ([character shapeOrRandom]) {
-        case LSPasswordCharacterAttributeShapeCircle:
+    switch ([character shape]) {
+        case LSPasswordCharacterShapeCircle:
             [path addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
             break;
-        case LSPasswordCharacterAttributeShapeTriangle: {
+        case LSPasswordCharacterShapeTriangle: {
             [path moveToPoint:CGPointMake(center.x, center.y + offset)];
             [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             break;
         }
-        case LSPasswordCharacterAttributeShapeSquare:
+        case LSPasswordCharacterShapeSquare:
             [path moveToPoint:CGPointMake(center.x - offset, center.y + offset)];
             [path addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
             [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
             [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             break;
         default:
+                        NSLog(@"something went wrong with shape");
             break;
     }
     [path closePath];
     
-    switch ([character colorOrRandom]) {
-        case LSPasswordCharacterAttributeColorBlue:
+    switch ([character color]) {
+        case LSPasswordCharacterColorBlue:
             CGContextSetStrokeColorWithColor(context, [[UIColor blueColor] CGColor]);
             CGContextSetFillColorWithColor(context, [[UIColor blueColor] CGColor]);
             break;
-        case LSPasswordCharacterAttributeColorRed:
+        case LSPasswordCharacterColorRed:
             CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
             CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
             break;
-        case LSPasswordCharacterAttributeColorGreen:
+        case LSPasswordCharacterColorGreen:
             CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
             CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
             break;
         default:
-            CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
-            CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
+            NSLog(@"something went wrong with color");
             break;
     }
     

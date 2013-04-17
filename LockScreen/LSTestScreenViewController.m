@@ -26,9 +26,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _masterPassword = [[LSPassword alloc] init];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue)]];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeShapeCircle)]];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeSizeLarge)]];
+        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone]];
+        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeCircle]];
+        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeSquare]];
         
         _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
     }

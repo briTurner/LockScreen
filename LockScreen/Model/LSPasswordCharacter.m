@@ -8,8 +8,6 @@
 
 #import "LSPasswordCharacter.h"
 
-static int numberOfAttributes = 3;
-
 @interface LSPasswordCharacter () {
     
 }
@@ -19,88 +17,54 @@ static int numberOfAttributes = 3;
 @implementation LSPasswordCharacter
 
 + (id)randomCharacter {
-    int offset = arc4random() % numberOfAttributes;
-    LSPasswordCharacterAttribute attributeColor = 1 << offset;
-    offset = (arc4random() % numberOfAttributes) + numberOfAttributes;
-    LSPasswordCharacterAttribute attributeSize = 1 << offset;
-    offset = (arc4random() % numberOfAttributes) + numberOfAttributes * 2;
-    LSPasswordCharacterAttribute attributeShape = 1 << offset;
-    LSPasswordCharacter *character = [LSPasswordCharacter characterWithAttributes:(attributeColor | attributeShape | attributeSize)];
+    LSPasswordCharacterColor color = (arc4random() % 3) + 1;
+    LSPasswordCharacterShape shape = (arc4random() % 3) + 1;
+    LSPasswordCharacterSize size = (arc4random() % 3) + 1;
+
+    LSPasswordCharacter *character = [self characterWithCharacterColor:color size:size shape:shape];
     return character;
 }
 
-+ (id)characterWithAttributes:(LSPasswordCharacterAttribute)characterAttributes {
-    return [[self alloc] initWithCharacterAttributes:characterAttributes];
++ (id)characterWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape {
+    return [[self alloc] initWithCharacterColor:color size:size shape:shape];
 }
 
-- (id)initWithCharacterAttributes:(LSPasswordCharacterAttribute)characterAttributes {
++ (id)characterWhichMeetsRequirmentsOfCharacter:(LSPasswordCharacter *)masterCharacter {
+    LSPasswordCharacter *minimumCharacter = [[LSPasswordCharacter alloc] init];
+    [minimumCharacter setShape:[masterCharacter shape] ? [masterCharacter shape] : (arc4random() % 3) + 1];
+        [minimumCharacter setSize:[masterCharacter size] ? [masterCharacter size] : (arc4random() % 3) + 1];
+        [minimumCharacter setColor:[masterCharacter color] ? [masterCharacter color] : (arc4random() % 3) + 1];
+    return minimumCharacter;
+}
+
+- (id)initWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape {
     self = [super init];
     if (self) {
-        _characterAttributes = characterAttributes;
+        _color = color;
+        _size = size;
+        _shape = shape;
     }
     return self;
 }
 
 -(id)init {
-    return [self initWithCharacterAttributes:LSPasswordCharacterAttributeNone];
-}
-
-- (void)addCharacterAttribute:(LSPasswordCharacterAttribute)attribute {
-    _characterAttributes = _characterAttributes | attribute;
+    return [self initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
 }
 
 - (BOOL)meetsRequirmentsOfCharacter:(LSPasswordCharacter *)passwordCharacter {
-    return ([self characterAttributes] | [passwordCharacter characterAttributes]) == [self characterAttributes];
-}
-
-- (LSPasswordCharacterAttribute)size {
-    LSPasswordCharacterAttribute size = ([self characterAttributes] & (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall));
-    return size;
-}
-
-- (LSPasswordCharacterAttribute)sizeOrRandom {
-    LSPasswordCharacterAttribute size = [self size];
-    if (size == LSPasswordCharacterAttributeNone)
-        size = [self randomSize];
-    return size;
-}
-
-- (LSPasswordCharacterAttribute)shape {
-    LSPasswordCharacterAttribute shape = ([self characterAttributes] & (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle));
-    return shape;
-}
-
-- (LSPasswordCharacterAttribute)shapeOrRandom {
-    LSPasswordCharacterAttribute shape = [self shape];
-    if (shape == LSPasswordCharacterAttributeNone)
-        shape = [self randomShape];
-    return shape;
-}
-
-- (LSPasswordCharacterAttribute)color {
-    LSPasswordCharacterAttribute color = ([self characterAttributes] & (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed));
-    if (color == LSPasswordCharacterAttributeNone)
-        color = [self randomColor];
-    return color;
-}
-
-- (LSPasswordCharacterAttribute)colorOrRandom {
-    LSPasswordCharacterAttribute color = [self color];
-    if (color == LSPasswordCharacterAttributeNone)
-        color = [self randomColor];
-    return color;
-}
-
-- (LSPasswordCharacterAttribute)randomSize {
-    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeSizeLarge], [NSNumber numberWithInt:LSPasswordCharacterAttributeSizeMedium], [NSNumber numberWithInt:LSPasswordCharacterAttributeSizeSmall]][arc4random() % 3] intValue];
-}
-
-- (LSPasswordCharacterAttribute)randomShape {
-    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeShapeSquare], [NSNumber numberWithInt:LSPasswordCharacterAttributeShapeCircle], [NSNumber numberWithInt:LSPasswordCharacterAttributeShapeTriangle]][arc4random() % 3] intValue];
-}
-
-- (LSPasswordCharacterAttribute)randomColor {
-    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeColorBlue], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorGreen], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorRed]][arc4random() % 3] intValue];
+    if ([passwordCharacter color]) {
+        if ([passwordCharacter color] != [self color])
+            return NO;
+    }
+    if ([passwordCharacter size]) {
+        if ([passwordCharacter size] != [self size])
+            return NO;
+    }
+    if ([passwordCharacter shape]) {
+        if ([passwordCharacter shape] != [self shape])
+            return NO;
+    }
+    return YES;
 }
 
 - (NSString *)description {

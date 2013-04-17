@@ -19,7 +19,7 @@
     }
     for (LSPasswordCharacter *character in [password passwordCharacters]) {
         int index = arc4random() % count;
-        [passwordCharacters replaceObjectAtIndex:index withObject:character];
+        [passwordCharacters replaceObjectAtIndex:index withObject:[LSPasswordCharacter characterWhichMeetsRequirmentsOfCharacter:character]];
     }
     return passwordCharacters;
 }
