@@ -41,7 +41,4 @@ typedef enum {
 - (LSPasswordCharacterAttribute)shape;
 - (LSPasswordCharacterAttribute)color;
 
-+ (NSArray *)sizes;
-+ (NSArray *)colors;
-+ (NSArray *)shapes;
 @end

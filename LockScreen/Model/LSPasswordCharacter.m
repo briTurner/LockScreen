@@ -54,27 +54,37 @@ static int numberOfAttributes = 3;
 }
 
 - (LSPasswordCharacterAttribute)size {
-    return ([self characterAttributes] & (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall));
+    LSPasswordCharacterAttribute size = ([self characterAttributes] & (LSPasswordCharacterAttributeSizeLarge | LSPasswordCharacterAttributeSizeMedium | LSPasswordCharacterAttributeSizeSmall));
+    if (size == LSPasswordCharacterAttributeNone)
+        size = [self randomSize];
+    return size;
 }
 
 - (LSPasswordCharacterAttribute)shape {
-      return ([self characterAttributes] & (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle));
+    LSPasswordCharacterAttribute shape = ([self characterAttributes] & (LSPasswordCharacterAttributeShapeCircle | LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeShapeTriangle));
+    if (shape == LSPasswordCharacterAttributeNone)
+        shape = [self randomShape];
+    return shape;
 }
 
 - (LSPasswordCharacterAttribute)color {
-          return ([self characterAttributes] & (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed));
+    LSPasswordCharacterAttribute color = ([self characterAttributes] & (LSPasswordCharacterAttributeColorBlue | LSPasswordCharacterAttributeColorGreen | LSPasswordCharacterAttributeColorRed));
+    if (color == LSPasswordCharacterAttributeNone)
+        color = [self randomColor];
+    return color;
 }
 
-+ (NSArray *)sizes {
-    return @[@"Small", @"Medium", @"Large"];
+- (LSPasswordCharacterAttribute)randomSize {
+    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeSizeLarge], [NSNumber numberWithInt:LSPasswordCharacterAttributeSizeMedium], [NSNumber numberWithInt:LSPasswordCharacterAttributeSizeSmall]][arc4random() % 3] intValue];
 }
 
-+ (NSArray *)colors {
-    return @[@"Red", @"Green", @"Blue"];
+- (LSPasswordCharacterAttribute)randomShape {
+    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeShapeSquare], [NSNumber numberWithInt:LSPasswordCharacterAttributeShapeCircle], [NSNumber numberWithInt:LSPasswordCharacterAttributeShapeTriangle]][arc4random() % 3] intValue];
 }
 
-+ (NSArray *)shapes {
-    return @[@"Square", @"Triangle", @"House"];
+- (LSPasswordCharacterAttribute)randomColor {
+    return [@[[NSNumber numberWithInt:LSPasswordCharacterAttributeColorBlue], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorGreen], [NSNumber numberWithInt:LSPasswordCharacterAttributeColorRed]][arc4random() % 3] intValue];
 }
+
 
 @end

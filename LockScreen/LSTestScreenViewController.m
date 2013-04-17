@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    LSPasswordCharacter *passwordChar = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeSizeLarge)];
+    LSPasswordCharacter *passwordChar = [[LSPasswordCharacter alloc] initWithCharacterAttributes:(LSPasswordCharacterAttributeShapeSquare | LSPasswordCharacterAttributeSizeLarge)];
     
     UIImage *image = [LSImageFactory imageForPasswordCharacter:passwordChar];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

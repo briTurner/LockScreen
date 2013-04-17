@@ -10,6 +10,8 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "LSPasswordCharacter.h"
 
+int sizeConst = 20;
+
 @implementation LSImageFactory
 
 + (UIImage *)imageForPasswordCharacter:(LSPasswordCharacter *)character {
@@ -28,22 +30,31 @@
             multiplier = .5;
             break;
         default: {
-            multiplier = .5;
             break;
         }
     }
-
+    
     UIBezierPath *path = [[UIBezierPath alloc] init];
+    
+    CGPoint center = CGPointMake(50, 50);
+    CGFloat offset = sizeConst * multiplier;
     switch ([character shape]) {
         case LSPasswordCharacterAttributeShapeCircle:
-            [path addArcWithCenter:CGPointMake(50, 50) radius:20 * multiplier startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+            [path addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
             break;
-        case LSPasswordCharacterAttributeShapeTriangle:
+        case LSPasswordCharacterAttributeShapeTriangle: {
+            [path moveToPoint:CGPointMake(center.x, center.y + offset)];
+            [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
+            [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             break;
+        }
         case LSPasswordCharacterAttributeShapeSquare:
+            [path moveToPoint:CGPointMake(center.x - offset, center.y + offset)];
+            [path addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
+            [path addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
+            [path addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
             break;
         default:
-            [path addArcWithCenter:CGPointMake(50, 50) radius:20 * multiplier startAngle:0 endAngle:M_PI * 2 clockwise:YES];
             break;
     }
     [path closePath];
