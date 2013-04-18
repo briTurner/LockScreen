@@ -20,7 +20,7 @@
     LSPasswordCharacterColor color = (arc4random() % 3) + 1;
     LSPasswordCharacterShape shape = (arc4random() % 3) + 1;
     LSPasswordCharacterSize size = (arc4random() % 3) + 1;
-
+    
     LSPasswordCharacter *character = [self characterWithCharacterColor:color size:size shape:shape];
     return character;
 }
@@ -32,8 +32,8 @@
 + (id)characterWhichMeetsRequirmentsOfCharacter:(LSPasswordCharacter *)masterCharacter {
     LSPasswordCharacter *minimumCharacter = [[LSPasswordCharacter alloc] init];
     [minimumCharacter setShape:[masterCharacter shape] ? [masterCharacter shape] : (arc4random() % 3) + 1];
-        [minimumCharacter setSize:[masterCharacter size] ? [masterCharacter size] : (arc4random() % 3) + 1];
-        [minimumCharacter setColor:[masterCharacter color] ? [masterCharacter color] : (arc4random() % 3) + 1];
+    [minimumCharacter setSize:[masterCharacter size] ? [masterCharacter size] : (arc4random() % 3) + 1];
+    [minimumCharacter setColor:[masterCharacter color] ? [masterCharacter color] : (arc4random() % 3) + 1];
     return minimumCharacter;
 }
 

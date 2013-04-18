@@ -10,17 +10,29 @@
 #import "LSPasswordCharacter.h"
 #import "LSPassword.h"
 
+static NSMutableArray *arrayOfUsedIndexes;
+
 @implementation LSUtils
 
 + (NSArray *)passwordCharactersToMeetMasterPassword:(LSPassword *)password count:(int)count {
+
     NSMutableArray *passwordCharacters = [NSMutableArray array];
     for (int i = 0; i < count; i++) {
         [passwordCharacters addObject:[LSPasswordCharacter randomCharacter]];
     }
+    arrayOfUsedIndexes = [NSMutableArray array];
     for (LSPasswordCharacter *character in [password passwordCharacters]) {
-        int index = arc4random() % count;
+        int index = [self randomIndexWithLimit:count];
         [passwordCharacters replaceObjectAtIndex:index withObject:[LSPasswordCharacter characterWhichMeetsRequirmentsOfCharacter:character]];
     }
     return passwordCharacters;
+}
+
++ (int)randomIndexWithLimit:(int)limit {
+    int index = arc4random() % limit;
+    if ([arrayOfUsedIndexes containsObject:[NSNumber numberWithInt:index]]) {
+        index = [self randomIndexWithLimit:limit];
+    }
+    return index;
 }
 @end

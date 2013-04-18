@@ -26,9 +26,21 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _masterPassword = [[LSPassword alloc] init];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone]];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorBlue size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeCircle]];
-        [_masterPassword addPasswordCharacter:[[LSPasswordCharacter alloc] initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeSquare]];
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
+                                                                                             size:LSPasswordCharacterSizeSmall
+                                                                                            shape:LSPasswordCharacterShapeTriangle]];
+        
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
+                                                                                             size:LSPasswordCharacterSizeMedium
+                                                                                            shape:LSPasswordCharacterShapeTriangle]];
+        
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
+                                                                                             size:LSPasswordCharacterSizeNone
+                                                                                            shape:LSPasswordCharacterShapeSquare]];
+        
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorRed
+                                                                                          size:LSPasswordCharacterSizeLarge
+                                                                                         shape:LSPasswordCharacterShapeNone]];
         
         _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
     }
@@ -38,7 +50,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     int index = 0;
     for (int y = 0; y < 3; y++) {
@@ -76,7 +87,7 @@
     [_enteredPassword addPasswordCharacter:passwordChar];
     
     if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGUREDO UT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGURED OUT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         _enteredPassword = nil;
     }

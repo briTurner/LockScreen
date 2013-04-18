@@ -68,6 +68,7 @@ int sizeConst = 20;
                 offset = sizeConst * [multiplier floatValue];
                 [outlines moveToPoint:CGPointMake(center.x - offset, center.y + offset)];
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y + offset)];
+
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
                 [outlines addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
                 [outlines closePath];
@@ -99,6 +100,8 @@ int sizeConst = 20;
     [path fill];
 
     CGContextSetStrokeColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    CGFloat dashArray[] = {5,4};
+    CGContextSetLineDash(context, 3, dashArray, 2);
     [outlines stroke];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
