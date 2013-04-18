@@ -42,6 +42,6 @@ typedef enum {
 //DI
 - (id)initWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape;
 - (BOOL)meetsRequirmentsOfCharacter:(LSPasswordCharacter *)passwordCharacter;
-
+- (UIImage *)imageForPasswordCharacter;
 
 @end

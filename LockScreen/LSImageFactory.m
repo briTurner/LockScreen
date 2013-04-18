@@ -8,6 +8,7 @@
 
 #import "LSImageFactory.h"
 #import <CoreGraphics/CoreGraphics.h>
+#import <QuartzCore/QuartzCore.h>
 #import "LSPasswordCharacter.h"
 
 int sizeConst = 20;

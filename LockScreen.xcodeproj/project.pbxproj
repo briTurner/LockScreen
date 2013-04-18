@@ -12,6 +12,10 @@
 		B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D2168A576000013CCB /* CoreGraphics.framework */; };
 		B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
 		B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
+		B194DEDD171F91D200F6E633 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B194DEDC171F91D200F6E633 /* QuartzCore.framework */; };
+		B194DEDE171F954100F6E633 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B194DEDC171F91D200F6E633 /* QuartzCore.framework */; };
+		B194DEE2171F976B00F6E633 /* LSDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B194DEE1171F976B00F6E633 /* LSDropZoneView.m */; };
+		B194DEE3171F976B00F6E633 /* LSDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B194DEE1171F976B00F6E633 /* LSDropZoneView.m */; };
 		B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E418831717831C00B63C2D /* SenTestingKit.framework */; };
 		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
@@ -41,6 +45,9 @@
 		B16CE60D171EE9E600976F97 /* LSImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageFactory.m; sourceTree = "<group>"; };
 		B16CE63F171F0F5A00976F97 /* LSTestScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTestScreenViewController.h; sourceTree = "<group>"; };
 		B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTestScreenViewController.m; sourceTree = "<group>"; };
+		B194DEDC171F91D200F6E633 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B194DEE0171F976B00F6E633 /* LSDropZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDropZoneView.h; sourceTree = "<group>"; };
+		B194DEE1171F976B00F6E633 /* LSDropZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDropZoneView.m; sourceTree = "<group>"; };
 		B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacterTests.h; path = ../LockScreen/LSPasswordCharacterTests.h; sourceTree = "<group>"; };
 		B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacterTests.m; path = ../LockScreen/LSPasswordCharacterTests.m; sourceTree = "<group>"; };
 		B1E418831717831C00B63C2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -78,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B194DEDD171F91D200F6E633 /* QuartzCore.framework in Frameworks */,
 				B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */,
 				B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */,
 				B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */,
@@ -89,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B194DEDE171F954100F6E633 /* QuartzCore.framework in Frameworks */,
 				B1E7C0CF168A576000013CCB /* UIKit.framework in Frameworks */,
 				B1E7C0D1168A576000013CCB /* Foundation.framework in Frameworks */,
 				B1E7C0D3168A576000013CCB /* CoreGraphics.framework in Frameworks */,
@@ -98,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B194DEDF171F975D00F6E633 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B194DEE0171F976B00F6E633 /* LSDropZoneView.h */,
+				B194DEE1171F976B00F6E633 /* LSDropZoneView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		B1E4188E171783CD00B63C2D /* LSTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +175,7 @@
 		B1E7C0CD168A576000013CCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B194DEDC171F91D200F6E633 /* QuartzCore.framework */,
 				B1E418831717831C00B63C2D /* SenTestingKit.framework */,
 				B1E7C0CE168A576000013CCB /* UIKit.framework */,
 				B1E7C0D0168A576000013CCB /* Foundation.framework */,
@@ -168,6 +187,7 @@
 		B1E7C0D4168A576000013CCB /* LockScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B194DEDF171F975D00F6E633 /* View */,
 				B1E7C0F2168A57AB00013CCB /* Controllers */,
 				B1E7C0EE168A577E00013CCB /* Model */,
 				B1E4192F1718882500B63C2D /* Util */,
@@ -327,6 +347,7 @@
 				B1E4192E1718779400B63C2D /* LSUtilsTest.m in Sources */,
 				B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */,
 				B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
+				B194DEE3171F976B00F6E633 /* LSDropZoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +362,7 @@
 				B1E4192A1718774100B63C2D /* LSUtils.m in Sources */,
 				B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */,
 				B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
+				B194DEE2171F976B00F6E633 /* LSDropZoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

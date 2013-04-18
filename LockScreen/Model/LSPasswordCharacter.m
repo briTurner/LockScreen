@@ -7,6 +7,7 @@
 //
 
 #import "LSPasswordCharacter.h"
+#import "LSImageFactory.h"
 
 @interface LSPasswordCharacter () {
     
@@ -49,6 +50,10 @@
 
 -(id)init {
     return [self initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
+}
+
+- (UIImage *)imageForPasswordCharacter {
+    return [LSImageFactory imageForPasswordCharacter:self];
 }
 
 - (BOOL)meetsRequirmentsOfCharacter:(LSPasswordCharacter *)passwordCharacter {
