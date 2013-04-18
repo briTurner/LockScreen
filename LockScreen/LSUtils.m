@@ -32,7 +32,6 @@ static NSMutableArray *arrayOfUsedIndexes;
 + (int)randomIndexWithLimit:(int)limit {
     int index = arc4random() % limit;
     if ([arrayOfUsedIndexes containsObject:[NSNumber numberWithInt:index]]) {
-        NSLog(@"failed. so calling recursivly");
         index = [self randomIndexWithLimit:limit];
     }
     return index;

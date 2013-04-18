@@ -18,15 +18,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     LSPassword *_masterPassword = [[LSPassword alloc] init];
-    [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
+    [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
                                                                                       size:LSPasswordCharacterSizeSmall
-                                                                                     shape:LSPasswordCharacterShapeTriangle]];
+                                                                                     shape:LSPasswordCharacterShapeNone]];
     
     [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
                                                                                       size:LSPasswordCharacterSizeNone
-                                                                                     shape:LSPasswordCharacterShapeTriangle]];
+                                                                                     shape:LSPasswordCharacterShapeNone]];
     
-    [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
+    [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
                                                                                       size:LSPasswordCharacterSizeNone
                                                                                      shape:LSPasswordCharacterShapeTriangle]];
     

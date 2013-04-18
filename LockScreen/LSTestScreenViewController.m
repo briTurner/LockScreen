@@ -17,7 +17,6 @@
 
 @interface LSTestScreenViewController () {
     NSArray *_passwordCharacters;
-    NSMutableArray *_passwordCharacterButtons;
     
     LSPassword *_masterPassword;
     LSPassword *_enteredPassword;
@@ -33,10 +32,7 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _passwordCharacterButtons = [NSMutableArray array];
-        
         _masterPassword = mPassword;
-
     }
     return self;
 }
@@ -53,7 +49,7 @@
     UIButton *backspaceButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [backspaceButton setTitle:@"Backspace" forState:UIControlStateNormal];
     [backspaceButton setFrame:CGRectMake(20, 330, 135, 22)];
-    [backspaceButton addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [backspaceButton addTarget:self action:@selector(backspaceButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:backspaceButton];
     
     UIButton *enterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -75,10 +71,7 @@
     for (int y = 0; y < 3; y++) {
         for (int x = 0; x < 3; x++) {
             LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
-            UIImage *image = [passwordChar imageForPasswordCharacter];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [_passwordCharacterButtons addObject:button];
-            [button setImage:image forState:UIControlStateNormal];
+            UIButton *button = [passwordChar buttonForPasswordCharacter];
             [button setFrame:CGRectMake(100 * x, 100 * y, 100, 100)];
             [button setTag:index];
             [button addTarget:self action:@selector(passwordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,7 +82,8 @@
 }
 
 - (void)clearScreen {
-    for (UIButton *button in _passwordCharacterButtons) {
+    for (LSPasswordCharacter *character in _passwordCharacters) {
+        UIButton *button = [character buttonForPasswordCharacter];
         [button removeFromSuperview];
     }
 }

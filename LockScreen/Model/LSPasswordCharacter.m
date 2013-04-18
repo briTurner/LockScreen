@@ -10,7 +10,7 @@
 #import "LSImageFactory.h"
 
 @interface LSPasswordCharacter () {
-    
+    UIButton *_button;
 }
 
 @end
@@ -50,6 +50,15 @@
 
 -(id)init {
     return [self initWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone];
+}
+
+- (UIButton *)buttonForPasswordCharacter {
+    if (!_button) {
+        UIImage *image = [self imageForPasswordCharacter];
+        _button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button setImage:image forState:UIControlStateNormal];
+    }
+    return _button;
 }
 
 - (UIImage *)imageForPasswordCharacter {

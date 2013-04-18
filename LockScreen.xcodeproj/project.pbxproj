@@ -69,8 +69,8 @@
 		B1E7C0D8168A576000013CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1E7C0DA168A576000013CCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1E7C0DC168A576000013CCB /* LockScreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LockScreen-Prefix.pch"; sourceTree = "<group>"; };
-		B1E7C0DD168A576000013CCB /* LSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LSAppDelegate.h; path = ../LockScreen/LSAppDelegate.h; sourceTree = "<group>"; };
-		B1E7C0DE168A576000013CCB /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LSAppDelegate.m; path = ../LockScreen/LSAppDelegate.m; sourceTree = "<group>"; };
+		B1E7C0DD168A576000013CCB /* LSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSAppDelegate.h; sourceTree = "<group>"; };
+		B1E7C0DE168A576000013CCB /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSAppDelegate.m; sourceTree = "<group>"; };
 		B1E7C0E0168A576000013CCB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B1E7C0E2168A576000013CCB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B1E7C0E4168A576000013CCB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -133,8 +133,6 @@
 		B1E4188F171783CD00B63C2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1E7C0DD168A576000013CCB /* LSAppDelegate.h */,
-				B1E7C0DE168A576000013CCB /* LSAppDelegate.m */,
 				B1E41890171783CD00B63C2D /* LSTest-Info.plist */,
 				B1E41891171783CD00B63C2D /* InfoPlist.strings */,
 				B1E41897171783CD00B63C2D /* LSTest-Prefix.pch */,
@@ -199,6 +197,8 @@
 		B1E7C0D5168A576000013CCB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1E7C0DD168A576000013CCB /* LSAppDelegate.h */,
+				B1E7C0DE168A576000013CCB /* LSAppDelegate.m */,
 				B1E7C0D6168A576000013CCB /* LockScreen-Info.plist */,
 				B1E7C0D7168A576000013CCB /* InfoPlist.strings */,
 				B1E7C0DA168A576000013CCB /* main.m */,
