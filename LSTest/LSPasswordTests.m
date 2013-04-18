@@ -23,7 +23,7 @@
 @implementation LSPasswordTests
 
 - (void)setUp {
-        [super setUp];
+    [super setUp];
     password = [[LSPassword alloc] init];
     
     
@@ -47,6 +47,18 @@
     [password addPasswordCharacter:blue];
     STAssertTrue([[password passwordCharacters] objectAtIndex:0] == redHouse, @"password character addiction failing");
     STAssertTrue([[password passwordCharacters] objectAtIndex:1] == blue, @"password character addiction failing");
+}
+
+- (void)testRemoveLastPasswordCharacter {
+    [password addPasswordCharacter:redHouse];
+    NSArray *expectedChars = @[redHouse];
+    STAssertEqualObjects([password passwordCharacters], expectedChars, @"password character addition not working");
+    [password addPasswordCharacter:blue];
+    expectedChars = [NSArray arrayWithObjects:redHouse, blue, nil];
+    STAssertTrue([[password passwordCharacters] isEqual:expectedChars], nil);
+    [password removeLastPasswordCharacter];
+    expectedChars = [NSArray arrayWithObjects:redHouse, nil];
+    STAssertTrue([[password passwordCharacters] isEqual:expectedChars], nil);
 }
 
 - (void)testSetPasswordCharacterAtIndex {

@@ -29,6 +29,10 @@
     [_passwordCharacters addObject:passwordChar];
 }
 
+- (void)removeLastPasswordCharacter {
+    [_passwordCharacters removeLastObject];
+}
+
 - (void)setPasswordCharacter:(LSPasswordCharacter *)passwordCharacter atIndex:(NSInteger)index {
     if (index == [[self passwordCharacters] count])
         [self addPasswordCharacter:passwordCharacter];

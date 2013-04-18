@@ -53,4 +53,13 @@
     }
 }
 
+- (void)removeAllCharacters {
+    [_characters removeAllObjects];
+    for (UIImageView *imageView in _characterViews) {
+        [imageView removeFromSuperview];
+    }
+    [_characterViews removeAllObjects];
+    
+}
+
 @end
