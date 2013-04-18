@@ -17,8 +17,11 @@
 
 @interface LSTestScreenViewController () {
     NSArray *_passwordCharacters;
+    NSMutableArray *_passwordCharacterButtons;
+    
     LSPassword *_masterPassword;
     LSPassword *_enteredPassword;
+    
     LSDropZoneView *dropZoneView;
 }
 
@@ -30,24 +33,26 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _passwordCharacterButtons = [NSMutableArray array];
+        
         _masterPassword = [[LSPassword alloc] init];
         [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
                                                                                           size:LSPasswordCharacterSizeSmall
                                                                                          shape:LSPasswordCharacterShapeTriangle]];
         
         [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
-                                                                                          size:LSPasswordCharacterSizeMedium
+                                                                                          size:LSPasswordCharacterSizeNone
                                                                                          shape:LSPasswordCharacterShapeTriangle]];
         
         [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
-                                                                                          size:LSPasswordCharacterSizeSmall
+                                                                                          size:LSPasswordCharacterSizeNone
                                                                                          shape:LSPasswordCharacterShapeTriangle]];
         
         [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
                                                                                           size:LSPasswordCharacterSizeMedium
                                                                                          shape:LSPasswordCharacterShapeTriangle]];
         
-        _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
+        
     }
     return self;
 }
@@ -56,26 +61,12 @@
 {
     [super viewDidLoad];
     
-    int index = 0;
-    for (int y = 0; y < 3; y++) {
-        for (int x = 0; x < 3; x++) {
-            LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
-            UIImage *image = [passwordChar imageForPasswordCharacter];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setImage:image forState:UIControlStateNormal];
-            [button setFrame:CGRectMake(100 * x, 100 * y, 100, 100)];
-            [button setTag:index];
-            [button addTarget:self action:@selector(passwordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [[self view] addSubview:button];
-            index++;
-        }
-    }
     
-    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [clearButton setTitle:@"Backspace" forState:UIControlStateNormal];
-    [clearButton setFrame:CGRectMake(20, 330, 135, 22)];
-    [clearButton addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:clearButton];
+    UIButton *backspaceButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [backspaceButton setTitle:@"Backspace" forState:UIControlStateNormal];
+    [backspaceButton setFrame:CGRectMake(20, 330, 135, 22)];
+    [backspaceButton addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:backspaceButton];
     
     UIButton *enterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [enterButton setTitle:@"Enter" forState:UIControlStateNormal];
@@ -86,9 +77,36 @@
     dropZoneView = [[LSDropZoneView alloc] initWithFrame:CGRectMake(0, 360, 320, 100)];
     [dropZoneView setBackgroundColor:[UIColor grayColor]];
     [[self view] addSubview:dropZoneView];
+    
+    [self generatePasswordButtons];
 }
 
-- (void)clearButtonPressed:(id)sender {
+- (void)generatePasswordButtons {
+    _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
+    int index = 0;
+    for (int y = 0; y < 3; y++) {
+        for (int x = 0; x < 3; x++) {
+            LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
+            UIImage *image = [passwordChar imageForPasswordCharacter];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [_passwordCharacterButtons addObject:button];
+            [button setImage:image forState:UIControlStateNormal];
+            [button setFrame:CGRectMake(100 * x, 100 * y, 100, 100)];
+            [button setTag:index];
+            [button addTarget:self action:@selector(passwordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [[self view] addSubview:button];
+            index++;
+        }
+    }
+}
+
+- (void)clearScreen {
+    for (UIButton *button in _passwordCharacterButtons) {
+        [button removeFromSuperview];
+    }
+}
+
+- (void)backspaceButtonPressed:(id)sender {
     [dropZoneView removeLastCharacter];
     [_enteredPassword removeLastPasswordCharacter];
 }
@@ -102,9 +120,13 @@
     if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGURED OUT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        _enteredPassword = nil;
-        [dropZoneView removeAllCharacters];
+        
+    } else {
+        [self clearScreen];
+        [self generatePasswordButtons];
     }
+    _enteredPassword = nil;
+    [dropZoneView removeAllCharacters];
 }
 - (void)passwordButtonPressed:(id)sender {
     int index = [sender tag];
