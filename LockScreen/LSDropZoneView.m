@@ -30,10 +30,13 @@
 }
 
 - (void)layoutSubviews {
-    int x = 0;
-    for (UIImageView *characterImageView in _characterViews) {
-        [characterImageView setFrame:CGRectMake(100 * x, 0, 100, 100)];
-        x++;
+    if ([_characterViews count]) {
+        int x = 0;
+        int charWidth = MIN(320 / [_characterViews count], 100);
+        for (UIImageView *characterImageView in _characterViews) {
+            [characterImageView setFrame:CGRectMake(charWidth * x, 0, charWidth, charWidth)];
+            x++;
+        }
     }
 }
 

@@ -70,13 +70,20 @@
             index++;
         }
     }
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:@"Backspace" forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(20, 300, 150, 22)];
-    [button addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:button];
     
-    dropZoneView = [[LSDropZoneView alloc] initWithFrame:CGRectMake(0, 330, 320, 150)];
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [clearButton setTitle:@"Backspace" forState:UIControlStateNormal];
+    [clearButton setFrame:CGRectMake(20, 330, 135, 22)];
+    [clearButton addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:clearButton];
+    
+    UIButton *enterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [enterButton setTitle:@"Enter" forState:UIControlStateNormal];
+    [enterButton setFrame:CGRectMake(165, 330, 135, 22)];
+    [enterButton addTarget:self action:@selector(enterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:enterButton];
+    
+    dropZoneView = [[LSDropZoneView alloc] initWithFrame:CGRectMake(0, 360, 320, 100)];
     [dropZoneView setBackgroundColor:[UIColor grayColor]];
     [[self view] addSubview:dropZoneView];
 }
@@ -86,6 +93,19 @@
     [_enteredPassword removeLastPasswordCharacter];
 }
 
+- (void)enterButtonPressed:(id)sender {
+    [self checkPasswordMatch];
+}
+
+
+- (void)checkPasswordMatch {
+    if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGURED OUT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        _enteredPassword = nil;
+        [dropZoneView removeAllCharacters];
+    }
+}
 - (void)passwordButtonPressed:(id)sender {
     int index = [sender tag];
     LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
@@ -95,26 +115,18 @@
     
     [_enteredPassword addPasswordCharacter:passwordChar];
     
-        [dropZoneView addCharacter:passwordChar];
-    
-    if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGURED OUT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        _enteredPassword = nil;
-        [dropZoneView removeAllCharacters];
-        
-    }
+    [dropZoneView addCharacter:passwordChar];
 }
 
 //- (void)animateImage:(UIImage *)image fromFrame:(CGRect)frame {
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 //    [imageView setFrame:frame];
 //    [[self view] addSubview:imageView];
-//    
+//
 //    [UIView animateWithDuration:1.0 animations:^{
 //        [imageView setFrame:CGRectMake(150, 450, 100, 100)];
 //    } completion:^(BOOL finished) {
-//        
+//
 //    }];
 //}
 
