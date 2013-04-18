@@ -35,12 +35,12 @@
                                                                                             shape:LSPasswordCharacterShapeTriangle]];
         
         [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
-                                                                                             size:LSPasswordCharacterSizeNone
-                                                                                            shape:LSPasswordCharacterShapeSquare]];
+                                                                                             size:LSPasswordCharacterSizeSmall
+                                                                                            shape:LSPasswordCharacterShapeTriangle]];
         
-        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorRed
-                                                                                          size:LSPasswordCharacterSizeLarge
-                                                                                         shape:LSPasswordCharacterShapeNone]];
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
+                                                                                          size:LSPasswordCharacterSizeMedium
+                                                                                         shape:LSPasswordCharacterShapeTriangle]];
         
         _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
     }
@@ -70,6 +70,8 @@
     [button setFrame:CGRectMake(20, 320, 150, 44)];
     [button addTarget:self action:@selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:button];
+    
+
 }
 
 - (void)clearButtonPressed:(id)sender {

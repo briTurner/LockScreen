@@ -23,6 +23,7 @@ static NSMutableArray *arrayOfUsedIndexes;
     arrayOfUsedIndexes = [NSMutableArray array];
     for (LSPasswordCharacter *character in [password passwordCharacters]) {
         int index = [self randomIndexWithLimit:count];
+        [arrayOfUsedIndexes addObject:[NSNumber numberWithInt:index]];
         [passwordCharacters replaceObjectAtIndex:index withObject:[LSPasswordCharacter characterWhichMeetsRequirmentsOfCharacter:character]];
     }
     return passwordCharacters;
@@ -31,6 +32,7 @@ static NSMutableArray *arrayOfUsedIndexes;
 + (int)randomIndexWithLimit:(int)limit {
     int index = arc4random() % limit;
     if ([arrayOfUsedIndexes containsObject:[NSNumber numberWithInt:index]]) {
+        NSLog(@"failed. so calling recursivly");
         index = [self randomIndexWithLimit:limit];
     }
     return index;
