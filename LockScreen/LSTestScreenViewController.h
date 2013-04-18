@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LSPassword;
 
 @interface LSTestScreenViewController : UIViewController
+- (id)initWithMasterPassword:(LSPassword *)mPassword;
 
 @end

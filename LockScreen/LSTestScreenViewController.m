@@ -29,32 +29,20 @@
 
 @implementation LSTestScreenViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithMasterPassword:(LSPassword *)mPassword
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _passwordCharacterButtons = [NSMutableArray array];
         
-        _masterPassword = [[LSPassword alloc] init];
-        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
-                                                                                          size:LSPasswordCharacterSizeSmall
-                                                                                         shape:LSPasswordCharacterShapeTriangle]];
-        
-        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorBlue
-                                                                                          size:LSPasswordCharacterSizeNone
-                                                                                         shape:LSPasswordCharacterShapeTriangle]];
-        
-        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
-                                                                                          size:LSPasswordCharacterSizeNone
-                                                                                         shape:LSPasswordCharacterShapeTriangle]];
-        
-        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
-                                                                                          size:LSPasswordCharacterSizeMedium
-                                                                                         shape:LSPasswordCharacterShapeTriangle]];
-        
-        
+        _masterPassword = mPassword;
+
     }
     return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    return [self initWithMasterPassword:nil];
 }
 
 - (void)viewDidLoad
@@ -128,6 +116,7 @@
     _enteredPassword = nil;
     [dropZoneView removeAllCharacters];
 }
+
 - (void)passwordButtonPressed:(id)sender {
     int index = [sender tag];
     LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
@@ -136,21 +125,8 @@
         _enteredPassword = [[LSPassword alloc] init];
     
     [_enteredPassword addPasswordCharacter:passwordChar];
-    
     [dropZoneView addCharacter:passwordChar];
 }
-
-//- (void)animateImage:(UIImage *)image fromFrame:(CGRect)frame {
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//    [imageView setFrame:frame];
-//    [[self view] addSubview:imageView];
-//
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [imageView setFrame:CGRectMake(150, 450, 100, 100)];
-//    } completion:^(BOOL finished) {
-//
-//    }];
-//}
 
 
 @end
