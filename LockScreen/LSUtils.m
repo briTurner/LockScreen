@@ -29,6 +29,9 @@ static NSMutableArray *arrayOfUsedIndexes;
     return passwordCharacters;
 }
 
+
+//this is used to ensure that we are not replacing one character required for the password with
+//another character required for the password
 + (int)randomIndexWithLimit:(int)limit {
     int index = arc4random() % limit;
     if ([arrayOfUsedIndexes containsObject:[NSNumber numberWithInt:index]]) {

@@ -12,4 +12,7 @@
 @interface LSLockScreenViewController : UIViewController
 - (id)initWithMasterPassword:(LSPassword *)mPassword failureBlock:(void (^)(void))fBlock successBlock:(void (^)(void))sBlock;
 
+@property (nonatomic, copy) void(^failureBlock)(void);
+@property (nonatomic, copy) void(^successBlock)(void);
+
 @end

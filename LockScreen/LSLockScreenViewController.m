@@ -22,9 +22,6 @@
     LSPassword *_enteredPassword;
     
     LSDropZoneView *dropZoneView;
-    
-    void(^_failureBlock)(void);
-    void(^_successBlock)(void);
 }
 
 @end
@@ -48,7 +45,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     UIButton *backspaceButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [backspaceButton setTitle:@"Backspace" forState:UIControlStateNormal];
@@ -104,13 +100,13 @@
 
 - (void)checkPasswordMatch {
     if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
-        if (_successBlock)
-            _successBlock();
+        if ([self successBlock])
+            [self successBlock]();
     } else {
         [self clearScreen];
         [self generatePasswordButtons];
-        if (_failureBlock)
-            _failureBlock();
+        if ([self failureBlock])
+            [self failureBlock]();
     }
     _enteredPassword = nil;
     [dropZoneView removeAllCharacters];
