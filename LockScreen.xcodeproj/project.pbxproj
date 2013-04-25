@@ -10,8 +10,8 @@
 		B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
 		B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
 		B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D2168A576000013CCB /* CoreGraphics.framework */; };
-		B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
-		B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */; };
+		B16CE641171F0F5A00976F97 /* LSLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSLockScreenViewController.m */; };
+		B16CE642171F0F5A00976F97 /* LSLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE640171F0F5A00976F97 /* LSLockScreenViewController.m */; };
 		B194DEDD171F91D200F6E633 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B194DEDC171F91D200F6E633 /* QuartzCore.framework */; };
 		B194DEDE171F954100F6E633 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B194DEDC171F91D200F6E633 /* QuartzCore.framework */; };
 		B194DEE2171F976B00F6E633 /* LSDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B194DEE1171F976B00F6E633 /* LSDropZoneView.m */; };
@@ -43,8 +43,8 @@
 /* Begin PBXFileReference section */
 		B16CE60C171EE9E600976F97 /* LSImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageFactory.h; sourceTree = "<group>"; };
 		B16CE60D171EE9E600976F97 /* LSImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageFactory.m; sourceTree = "<group>"; };
-		B16CE63F171F0F5A00976F97 /* LSTestScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTestScreenViewController.h; sourceTree = "<group>"; };
-		B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTestScreenViewController.m; sourceTree = "<group>"; };
+		B16CE63F171F0F5A00976F97 /* LSLockScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLockScreenViewController.h; sourceTree = "<group>"; };
+		B16CE640171F0F5A00976F97 /* LSLockScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLockScreenViewController.m; sourceTree = "<group>"; };
 		B194DEDC171F91D200F6E633 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B194DEE0171F976B00F6E633 /* LSDropZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDropZoneView.h; sourceTree = "<group>"; };
 		B194DEE1171F976B00F6E633 /* LSDropZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDropZoneView.m; sourceTree = "<group>"; };
@@ -78,6 +78,7 @@
 		B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacter.m; path = Model/LSPasswordCharacter.m; sourceTree = "<group>"; };
 		B1E7C0F6168A59E200013CCB /* LSPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPassword.h; path = Model/LSPassword.h; sourceTree = "<group>"; };
 		B1E7C0F7168A59E200013CCB /* LSPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPassword.m; path = Model/LSPassword.m; sourceTree = "<group>"; };
+		B1FB4F6E1720954B0056156A /* LSLockScreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSLockScreen-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 			children = (
 				B1E7C0D4168A576000013CCB /* LockScreen */,
 				B1E4188E171783CD00B63C2D /* LSTest */,
+				B1FB4F6C1720954B0056156A /* LSLockScreen */,
 				B1E7C0CD168A576000013CCB /* Frameworks */,
 				B1E7C0CB168A576000013CCB /* Products */,
 			);
@@ -224,10 +226,26 @@
 		B1E7C0F2168A57AB00013CCB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B16CE63F171F0F5A00976F97 /* LSTestScreenViewController.h */,
-				B16CE640171F0F5A00976F97 /* LSTestScreenViewController.m */,
+				B16CE63F171F0F5A00976F97 /* LSLockScreenViewController.h */,
+				B16CE640171F0F5A00976F97 /* LSLockScreenViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B1FB4F6C1720954B0056156A /* LSLockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B1FB4F6D1720954B0056156A /* Supporting Files */,
+			);
+			path = LSLockScreen;
+			sourceTree = "<group>";
+		};
+		B1FB4F6D1720954B0056156A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1FB4F6E1720954B0056156A /* LSLockScreen-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +364,7 @@
 				B1E4192B1718774100B63C2D /* LSUtils.m in Sources */,
 				B1E4192E1718779400B63C2D /* LSUtilsTest.m in Sources */,
 				B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */,
-				B16CE642171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
+				B16CE642171F0F5A00976F97 /* LSLockScreenViewController.m in Sources */,
 				B194DEE3171F976B00F6E633 /* LSDropZoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +379,7 @@
 				B1E7C0F8168A59E200013CCB /* LSPassword.m in Sources */,
 				B1E4192A1718774100B63C2D /* LSUtils.m in Sources */,
 				B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */,
-				B16CE641171F0F5A00976F97 /* LSTestScreenViewController.m in Sources */,
+				B16CE641171F0F5A00976F97 /* LSLockScreenViewController.m in Sources */,
 				B194DEE2171F976B00F6E633 /* LSDropZoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

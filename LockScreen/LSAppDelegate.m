@@ -7,7 +7,7 @@
 //
 
 #import "LSAppDelegate.h"
-#import "LSTestScreenViewController.h"
+#import "LSLockScreenViewController.h"
 #import "LSPassword.h"
 #import "LSPasswordCharacter.h"
 
@@ -33,7 +33,12 @@
     [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorGreen
                                                                                       size:LSPasswordCharacterSizeMedium
                                                                                      shape:LSPasswordCharacterShapeTriangle]];
-    LSTestScreenViewController *vc = [[LSTestScreenViewController alloc] initWithMasterPassword:_masterPassword];
+    
+    LSLockScreenViewController *vc = [[LSLockScreenViewController alloc] initWithMasterPassword:_masterPassword failureBlock:^{
+        NSLog(@"failed to login");
+    } successBlock:^{
+        [[[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"You logged in successfully" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }];
     [[self window] setRootViewController:vc];
     [self.window makeKeyAndVisible];
     return YES;

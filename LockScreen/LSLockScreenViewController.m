@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Turningdevelopment. All rights reserved.
 //
 
-#import "LSTestScreenViewController.h"
+#import "LSLockScreenViewController.h"
 #import "LSPasswordCharacter.h"
 #import "LSImageFactory.h"
 #import "LSDropZoneView.h"
@@ -15,30 +15,34 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface LSTestScreenViewController () {
+@interface LSLockScreenViewController () {
     NSArray *_passwordCharacters;
     
     LSPassword *_masterPassword;
     LSPassword *_enteredPassword;
     
     LSDropZoneView *dropZoneView;
+    
+    void(^_failureBlock)(void);
+    void(^_successBlock)(void);
 }
 
 @end
 
-@implementation LSTestScreenViewController
+@implementation LSLockScreenViewController
 
-- (id)initWithMasterPassword:(LSPassword *)mPassword
-{
+- (id)initWithMasterPassword:(LSPassword *)mPassword failureBlock:(void (^)(void))fBlock successBlock:(void (^)(void))sBlock {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _masterPassword = mPassword;
+        _successBlock = sBlock;
+        _failureBlock = fBlock;
     }
     return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    return [self initWithMasterPassword:nil];
+    return [self initWithMasterPassword:nil failureBlock:nil successBlock:nil];
 }
 
 - (void)viewDidLoad
@@ -100,12 +104,13 @@
 
 - (void)checkPasswordMatch {
     if ([_enteredPassword meetsRequirmentsOfPassword:_masterPassword]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNLOCKED!" message:@"YOU FIGURED OUT THE PASSWORD" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
+        if (_successBlock)
+            _successBlock();
     } else {
         [self clearScreen];
         [self generatePasswordButtons];
+        if (_failureBlock)
+            _failureBlock();
     }
     _enteredPassword = nil;
     [dropZoneView removeAllCharacters];

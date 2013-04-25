@@ -38,8 +38,10 @@
         [self addPasswordCharacter:passwordCharacter];
     else if (index < [[self passwordCharacters] count])
         [_passwordCharacters replaceObjectAtIndex:index withObject:passwordCharacter];
-    else
-        NSLog(@"attempting to set a character at a range outside the passwords index");
+    else {
+        [self addPasswordCharacter:passwordCharacter];
+        NSLog(@"attempting to set a character at a range outside the passwords index.  Istead, we are just adding the character at the end");
+    }
 }
 
 - (BOOL)meetsRequirmentsOfPassword:(LSPassword *)password {
