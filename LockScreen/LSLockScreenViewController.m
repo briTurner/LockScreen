@@ -17,6 +17,7 @@
 
 @interface LSLockScreenViewController () {
     NSArray *_passwordCharacters;
+    NSMutableArray *_buttons;
     
     LSPassword *_masterPassword;
     LSPassword *_enteredPassword;
@@ -66,24 +67,28 @@
 }
 
 - (void)generatePasswordButtons {
+    _buttons = [NSMutableArray array];
     _passwordCharacters = [LSUtils passwordCharactersToMeetMasterPassword:_masterPassword count:9];
     int index = 0;
     for (int y = 0; y < 3; y++) {
         for (int x = 0; x < 3; x++) {
             LSPasswordCharacter *passwordChar = [_passwordCharacters objectAtIndex:index];
-            UIButton *button = [passwordChar buttonForPasswordCharacter];
+            UIImage *image = [passwordChar imageForPasswordCharacter];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:image forState:UIControlStateNormal];
+
             [button setFrame:CGRectMake(100 * x, 100 * y, 100, 100)];
             [button setTag:index];
             [button addTarget:self action:@selector(passwordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
             [[self view] addSubview:button];
+            [_buttons addObject:button];
             index++;
         }
     }
 }
 
 - (void)clearScreen {
-    for (LSPasswordCharacter *character in _passwordCharacters) {
-        UIButton *button = [character buttonForPasswordCharacter];
+    for (UIButton *button in _buttons) {
         [button removeFromSuperview];
     }
 }
