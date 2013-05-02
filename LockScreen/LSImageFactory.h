@@ -10,5 +10,7 @@
 @class LSPasswordCharacter;
 
 @interface LSImageFactory : NSObject
+
+//Generates an image based on the provided character
 + (UIImage *)imageForPasswordCharacter:(LSPasswordCharacter *)character;
 @end

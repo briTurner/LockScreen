@@ -25,16 +25,16 @@
     return character;
 }
 
-+ (id)characterWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape {
-    return [[self alloc] initWithCharacterColor:color size:size shape:shape];
-}
-
 + (id)characterWhichMeetsRequirmentsOfCharacter:(LSPasswordCharacter *)masterCharacter {
     LSPasswordCharacter *minimumCharacter = [[LSPasswordCharacter alloc] init];
     [minimumCharacter setShape:[masterCharacter shape] ? [masterCharacter shape] : (arc4random() % 3) + 1];
     [minimumCharacter setSize:[masterCharacter size] ? [masterCharacter size] : (arc4random() % 3) + 1];
     [minimumCharacter setColor:[masterCharacter color] ? [masterCharacter color] : (arc4random() % 3) + 1];
     return minimumCharacter;
+}
+
++ (id)characterWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape {
+    return [[self alloc] initWithCharacterColor:color size:size shape:shape];
 }
 
 - (id)initWithCharacterColor:(LSPasswordCharacterColor)color size:(LSPasswordCharacterSize)size shape:(LSPasswordCharacterShape)shape {
@@ -56,15 +56,15 @@
 }
 
 - (BOOL)meetsRequirmentsOfCharacter:(LSPasswordCharacter *)passwordCharacter {
-    if ([passwordCharacter color]) {
+    if ([passwordCharacter color] != LSPasswordCharacterColorNone) {
         if ([passwordCharacter color] != [self color])
             return NO;
     }
-    if ([passwordCharacter size]) {
+    if ([passwordCharacter size] != LSPasswordCharacterSizeNone) {
         if ([passwordCharacter size] != [self size])
             return NO;
     }
-    if ([passwordCharacter shape]) {
+    if ([passwordCharacter shape] != LSPasswordCharacterShapeNone) {
         if ([passwordCharacter shape] != [self shape])
             return NO;
     }
