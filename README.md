@@ -9,14 +9,14 @@ Using the lock screen is made to be as easy as possible.
 
 1) Create a master password.  
 
-  LSPassword *_masterPassword = [[LSPassword alloc] init];
+     LSPassword *_masterPassword = [[LSPassword alloc] init];
 
 2) Create each required character, and then add it to the master password. 
 
-  LSPasswordCharacter *char = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
+    LSPasswordCharacter *char = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
                                                                                       size:LSPasswordCharacterSizeSmall
                                                                                      shape:LSPasswordCharacterShapeNone];
-  _masterPassword addPasswordCharacter:char];
+     _masterPassword addPasswordCharacter:char];
 
 3) Create the LSLockScreenViewController passing in the master password, as well as a success block and a failure block.
 
