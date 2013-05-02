@@ -29,6 +29,15 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _characters = [[NSMutableArray alloc] init];
+        _characterViews = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     if ([_characterViews count]) {
         int x = 0;

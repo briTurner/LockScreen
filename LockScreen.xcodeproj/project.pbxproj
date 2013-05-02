@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B12746511732D7C7007BCCB6 /* LSLockScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12746501732D7C7007BCCB6 /* LSLockScreenViewController.xib */; };
+		B12746521732D7C7007BCCB6 /* LSLockScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12746501732D7C7007BCCB6 /* LSLockScreenViewController.xib */; };
 		B16CE60E171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
 		B16CE60F171EE9E600976F97 /* LSImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B16CE60D171EE9E600976F97 /* LSImageFactory.m */; };
 		B16CE63E171F0F1400976F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D2168A576000013CCB /* CoreGraphics.framework */; };
@@ -41,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B12746501732D7C7007BCCB6 /* LSLockScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSLockScreenViewController.xib; sourceTree = "<group>"; };
 		B16CE60C171EE9E600976F97 /* LSImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageFactory.h; sourceTree = "<group>"; };
 		B16CE60D171EE9E600976F97 /* LSImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageFactory.m; sourceTree = "<group>"; };
 		B16CE63F171F0F5A00976F97 /* LSLockScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLockScreenViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 			children = (
 				B16CE63F171F0F5A00976F97 /* LSLockScreenViewController.h */,
 				B16CE640171F0F5A00976F97 /* LSLockScreenViewController.m */,
+				B12746501732D7C7007BCCB6 /* LSLockScreenViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E41893171783CD00B63C2D /* InfoPlist.strings in Resources */,
+				B12746521732D7C7007BCCB6 /* LSLockScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +336,7 @@
 				B1E7C0E1168A576000013CCB /* Default.png in Resources */,
 				B1E7C0E3168A576000013CCB /* Default@2x.png in Resources */,
 				B1E7C0E5168A576000013CCB /* Default-568h@2x.png in Resources */,
+				B12746511732D7C7007BCCB6 /* LSLockScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
