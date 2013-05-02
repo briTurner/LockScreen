@@ -19,7 +19,6 @@
     NSArray *_passwordCharacters;
     NSMutableArray *_buttons;
     
-    LSPassword *_masterPassword;
     LSPassword *_enteredPassword;
     
     IBOutlet LSDropZoneView *_dropZoneView;
@@ -40,6 +39,7 @@
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    NSLog(@"either use initWithMasterPassword:failureBlock:successBlock: or ensure to set the coresponding properties");
     return [self initWithMasterPassword:nil failureBlock:nil successBlock:nil];
 }
 
