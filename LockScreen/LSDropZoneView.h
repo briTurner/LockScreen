@@ -11,7 +11,7 @@
 
 @interface LSDropZoneView : UIView
 
-- (void)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect;
+- (BOOL)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect;
 - (void)removeAllCharacters;
 - (void)removeLastCharacter;
 @end

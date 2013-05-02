@@ -10,11 +10,13 @@
 #import "LSPasswordCharacter.h"
 
 const int kMaxCharsPerRow = 6;
+const int kMinSizeOfChar = 53;
 
 
 @interface LSDropZoneView () {
     NSMutableArray *_characters;
     NSMutableArray *_characterViews;
+    int maxCharacters;
 }
 
 
@@ -26,8 +28,7 @@ const int kMaxCharsPerRow = 6;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _characters = [[NSMutableArray alloc] init];
-        _characterViews = [[NSMutableArray alloc] init];
+        [self setUp];
     }
     return self;
 }
@@ -35,18 +36,21 @@ const int kMaxCharsPerRow = 6;
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _characters = [[NSMutableArray alloc] init];
-        _characterViews = [[NSMutableArray alloc] init];
+        [self setUp];
     }
     return self;
 }
 
+- (void)setUp {
+    _characters = [[NSMutableArray alloc] init];
+    _characterViews = [[NSMutableArray alloc] init];
+}
+
 - (void)layoutSubviews {
+    maxCharacters = kMaxCharsPerRow * (int)([self frame].size.height / kMinSizeOfChar);
     if ([_characterViews count]) {
-        
         int numberOfRows = ceil([_characterViews count] / (float)kMaxCharsPerRow);
-        
-        int charWidth = MAX(MIN(320 / [_characterViews count], 100), 53);
+        int charWidth = MAX(MIN(320 / [_characterViews count], 100), kMinSizeOfChar);
         
         int index = 0;
         for (int y = 0; y < numberOfRows; y++) {
@@ -57,19 +61,23 @@ const int kMaxCharsPerRow = 6;
                 [UIView animateWithDuration:.3 animations:^{
                     [characterImageView setFrame:CGRectMake(charWidth * x, charWidth * y, charWidth, charWidth)];
                 }];
-                
                 index++;
             }
         }
     }
 }
 
-- (void)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect {
+- (BOOL)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect {
+    if ([_characters count] < maxCharacters) {
     [_characters addObject:character];
     UIImageView *characterImageView = [[UIImageView alloc] initWithImage:[character imageForPasswordCharacter]];
     [characterImageView setFrame:rect];
     [_characterViews addObject:characterImageView];
     [self addSubview:characterImageView];
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)removeLastCharacter {
@@ -87,7 +95,6 @@ const int kMaxCharsPerRow = 6;
         [imageView removeFromSuperview];
     }
     [_characterViews removeAllObjects];
-    
 }
 
 @end
