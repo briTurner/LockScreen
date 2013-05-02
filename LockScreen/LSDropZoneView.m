@@ -43,27 +43,31 @@ const int kMaxCharsPerRow = 6;
 
 - (void)layoutSubviews {
     if ([_characterViews count]) {
-
+        
         int numberOfRows = ceil([_characterViews count] / (float)kMaxCharsPerRow);
-
+        
         int charWidth = MAX(MIN(320 / [_characterViews count], 100), 53);
-
+        
         int index = 0;
         for (int y = 0; y < numberOfRows; y++) {
             for (int x = 0; x < kMaxCharsPerRow; x++) {
                 if (index >= [_characterViews count])
                     break;
                 UIImageView *characterImageView = [_characterViews objectAtIndex:index];
-                [characterImageView setFrame:CGRectMake(charWidth * x, charWidth * y, charWidth, charWidth)];
+                [UIView animateWithDuration:.3 animations:^{
+                    [characterImageView setFrame:CGRectMake(charWidth * x, charWidth * y, charWidth, charWidth)];
+                }];
+                
                 index++;
             }
         }
     }
 }
 
-- (void)addCharacter:(LSPasswordCharacter *)character {
+- (void)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect {
     [_characters addObject:character];
     UIImageView *characterImageView = [[UIImageView alloc] initWithImage:[character imageForPasswordCharacter]];
+    [characterImageView setFrame:rect];
     [_characterViews addObject:characterImageView];
     [self addSubview:characterImageView];
 }

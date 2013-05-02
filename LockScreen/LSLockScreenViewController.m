@@ -64,6 +64,7 @@
             [button setTag:index];
             [button addTarget:self action:@selector(passwordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
             [[self view] addSubview:button];
+            [[self view] sendSubviewToBack:button];
             [_buttons addObject:button];
             index++;
         }
@@ -108,7 +109,7 @@
         _enteredPassword = [[LSPassword alloc] init];
     
     [_enteredPassword addPasswordCharacter:passwordChar];
-    [_dropZoneView addCharacter:passwordChar];
+    [_dropZoneView addCharacter:passwordChar fromRect:[[self view] convertRect:[sender frame] toView:_dropZoneView]];
 }
 
 
