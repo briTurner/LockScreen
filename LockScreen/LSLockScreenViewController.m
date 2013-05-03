@@ -31,6 +31,7 @@
 - (id)initWithMasterPassword:(LSPassword *)mPassword failureBlock:(void (^)(void))fBlock successBlock:(void (^)(void))sBlock {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
+        
         _masterPassword = mPassword;
         _successBlock = sBlock;
         _failureBlock = fBlock;
@@ -46,7 +47,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self generatePasswordButtons];
 }
 

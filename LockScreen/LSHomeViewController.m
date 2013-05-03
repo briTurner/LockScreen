@@ -12,6 +12,7 @@
 
 @interface LSHomeViewController () {
     LSPassword *_masterPassword;
+    __weak IBOutlet UIButton *_testLockScreenButton;
 }
 - (IBAction)setPasswordButtonPressed:(id)sender;
 - (IBAction)testLockScreenButtonPressed:(id)sender;
@@ -29,6 +30,11 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [_testLockScreenButton setEnabled:[[_masterPassword passwordCharacters] count] > 0];
+}
+
 
 
 - (IBAction)setPasswordButtonPressed:(id)sender {
@@ -41,20 +47,18 @@
 
 - (IBAction)testLockScreenButtonPressed:(id)sender {
     if ([_masterPassword passwordCharacters]) {
-    LSLockScreenViewController *vc = [[LSLockScreenViewController alloc] initWithMasterPassword:_masterPassword failureBlock:^{
-        NSLog(@"failed to login");
-    } successBlock:^{
-        NSLog(@"success");
-        [self dismissViewControllerAnimated:YES completion:^{
+        LSLockScreenViewController *vc = [[LSLockScreenViewController alloc] initWithMasterPassword:_masterPassword failureBlock:^{
+            NSLog(@"failed to login");
+        } successBlock:^{
+            NSLog(@"success");
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+        
+        [self presentViewController:vc animated:YES completion:^{
             
         }];
-    }];
-    
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
-    } else {
-        [[[UIAlertView alloc] initWithTitle:@"Please select a password before trying to unlock" message:@"You must pick a password before attempting to unlock the screen" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
 }
 
@@ -63,6 +67,8 @@
 
 - (void)passwordPickerViewController:(LSPasswordPickerViewController *)passwordPicker returnedWithPassword:(LSPassword *)password {
     _masterPassword = password;
+    [_testLockScreenButton setEnabled:[[_masterPassword passwordCharacters] count] > 0];
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 @end
