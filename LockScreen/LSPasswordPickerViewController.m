@@ -14,6 +14,8 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
 
 @interface LSPasswordPickerViewController () {
     LSPassword *_password;
+    LSPasswordPickerCellAttribute _attribute;
+    NSIndexPath *_indexPathForCell;
 }
 
 @end
@@ -32,8 +34,6 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
     return self;
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self tableView] registerNib:[UINib nibWithNibName:@"LSPasswordPickerCell" bundle:nil] forCellReuseIdentifier:LSPasswordPickerCellID];
@@ -42,14 +42,38 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
 - (IBAction)addButtonPressed:(id)sender {
     [[self tableView] beginUpdates];
     [[self tableView] insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[[_password passwordCharacters] count] inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
-        [_password addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone]];
+    [_password addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeNone shape:LSPasswordCharacterShapeNone]];
     [[self tableView] endUpdates];
+}
+
+- (IBAction)doneButtonPressed:(id)sender {
+    [[self delegate] passwordPickerViewController:self returnedWithPassword:_password];
 }
 
 
 - (void)presentActionSheetForAttribute:(LSPasswordPickerCellAttribute)attribute forCellAtIndexPath:(NSIndexPath *)indexPath {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Attribute" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"sometihng", @"something else", nil];
-    [actionSheet showInView:[self view]];
+    _indexPathForCell = indexPath;
+    _attribute = attribute;
+    switch (attribute) {
+        case LSPasswordPickerCellAttributeColor: {
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Attribute" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"No Color", @"Red", @"Green", @"Blue", nil];
+            [actionSheet showInView:[self view]];
+            break;
+        }
+        case LSPasswordPickerCellAttributeShape: {
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Attribute" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"No Shape", @"Circle", @"Triangle", @"Square", nil];
+            [actionSheet showInView:[self view]];
+            break;
+        }
+        case LSPasswordPickerCellAttributeSize: {
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Attribute" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"No Size", @"Small", @"Medium", @"Large", nil];
+            [actionSheet showInView:[self view]];
+            break;
+        }
+        default:
+            break;
+    }
+    
 }
 
 #pragma mark - TableView Datasource/Delegate
@@ -60,10 +84,16 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LSPasswordPickerCell *cell = (LSPasswordPickerCell *)[tableView dequeueReusableCellWithIdentifier:LSPasswordPickerCellID];
+    LSPasswordCharacter *character = [[_password passwordCharacters] objectAtIndex:[indexPath row]];
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setButtonSelectionBlock:^(LSPasswordPickerCell *cell, LSPasswordPickerCellAttribute attribute) {
         [self presentActionSheetForAttribute:attribute forCellAtIndexPath:[tableView indexPathForCell:cell]];
     }];
+    
+    [cell setColor:[character color]];
+    [cell setSize:[character size]];
+    [cell setShape:[character shape]];
     
     return cell;
 }
@@ -72,6 +102,26 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
     return 85;
 }
 
+
+#pragma mark - Action Sheet Delegate Methods 
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    LSPasswordCharacter *character = [[_password passwordCharacters] objectAtIndex:[_indexPathForCell row]];
+    switch (_attribute) {
+        case LSPasswordPickerCellAttributeSize:
+            [character setSize:(LSPasswordCharacterSize)buttonIndex];
+            break;
+        case LSPasswordPickerCellAttributeShape:
+            [character setShape:(LSPasswordCharacterShape)buttonIndex];
+            break;
+        case LSPasswordPickerCellAttributeColor:
+            [character setColor:(LSPasswordCharacterColor)buttonIndex];
+            break;
+        default:
+            break;
+    }
+    [[self tableView] reloadRowsAtIndexPaths:@[_indexPathForCell] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
 
 @end

@@ -44,6 +44,7 @@
     LSLockScreenViewController *vc = [[LSLockScreenViewController alloc] initWithMasterPassword:_masterPassword failureBlock:^{
         NSLog(@"failed to login");
     } successBlock:^{
+        NSLog(@"success");
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
@@ -58,6 +59,7 @@
 #pragma mark LSPasswordPickerViewControllerDelegate Methods
 
 - (void)passwordPickerViewController:(LSPasswordPickerViewController *)passwordPicker returnedWithPassword:(LSPassword *)password {
-    NSLog(@"returned");
+    _masterPassword = password;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
