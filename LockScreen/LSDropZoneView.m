@@ -83,9 +83,14 @@ const int kMinSizeOfChar = 53;
 - (void)removeLastCharacter {
     UIImageView *imageView = [_characterViews lastObject];
     if (imageView) {
-        [imageView removeFromSuperview];
         [_characterViews removeLastObject];
         [_characters removeLastObject];
+        [UIView animateWithDuration:.5 animations:^{
+            [imageView setFrame:CGRectMake(160, 480, 50, 50)];
+            [imageView setAlpha:0];
+        } completion:^(BOOL finished) {
+            [imageView removeFromSuperview];
+        }];   
     }
 }
 
