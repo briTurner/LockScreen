@@ -120,7 +120,7 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
         default:
             break;
     }
-    [[self tableView] reloadRowsAtIndexPaths:@[_indexPathForCell] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [[self tableView] reloadRowsAtIndexPaths:@[_indexPathForCell] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 

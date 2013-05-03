@@ -24,6 +24,4 @@ typedef enum {
 
 @property (nonatomic, copy) void(^buttonSelectionBlock)(LSPasswordPickerCell *cell, LSPasswordPickerCellAttribute attribute);
 
-- (IBAction)buttonPressed:(id)sender;
-
 @end

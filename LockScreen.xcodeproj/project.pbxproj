@@ -30,6 +30,10 @@
 		B1B7BFAE173419890060D38C /* LSPasswordPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFAC173419890060D38C /* LSPasswordPickerCell.xib */; };
 		B1B7BFB3173424280060D38C /* LSPasswordPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB2173424280060D38C /* LSPasswordPickerViewController.xib */; };
 		B1B7BFB4173424280060D38C /* LSPasswordPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB2173424280060D38C /* LSPasswordPickerViewController.xib */; };
+		B1B7BFB6173434190060D38C /* color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB5173434190060D38C /* color@2x.png */; };
+		B1B7BFB7173434190060D38C /* color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB5173434190060D38C /* color@2x.png */; };
+		B1B7BFBA1734345E0060D38C /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB91734345E0060D38C /* color.png */; };
+		B1B7BFBB1734345E0060D38C /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BFB91734345E0060D38C /* color.png */; };
 		B1E4188B171783CD00B63C2D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E418831717831C00B63C2D /* SenTestingKit.framework */; };
 		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
@@ -72,6 +76,8 @@
 		B1B7BFA9173419770060D38C /* LSPasswordPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPasswordPickerCell.m; sourceTree = "<group>"; };
 		B1B7BFAC173419890060D38C /* LSPasswordPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSPasswordPickerCell.xib; sourceTree = "<group>"; };
 		B1B7BFB2173424280060D38C /* LSPasswordPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSPasswordPickerViewController.xib; sourceTree = "<group>"; };
+		B1B7BFB5173434190060D38C /* color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color@2x.png"; sourceTree = "<group>"; };
+		B1B7BFB91734345E0060D38C /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
 		B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacterTests.h; path = ../LockScreen/LSPasswordCharacterTests.h; sourceTree = "<group>"; };
 		B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacterTests.m; path = ../LockScreen/LSPasswordCharacterTests.m; sourceTree = "<group>"; };
 		B1E418831717831C00B63C2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -147,12 +153,22 @@
 		B1B7BF9917340B260060D38C /* LockScreen Library */ = {
 			isa = PBXGroup;
 			children = (
+				B1B7BFB81734341D0060D38C /* Resources */,
 				B194DEDF171F975D00F6E633 /* View */,
 				B1E7C0F2168A57AB00013CCB /* Controllers */,
 				B1E7C0EE168A577E00013CCB /* Model */,
 				B1E4192F1718882500B63C2D /* Util */,
 			);
 			name = "LockScreen Library";
+			sourceTree = "<group>";
+		};
+		B1B7BFB81734341D0060D38C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1B7BFB5173434190060D38C /* color@2x.png */,
+				B1B7BFB91734345E0060D38C /* color.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B1E4188E171783CD00B63C2D /* LSTest */ = {
@@ -366,6 +382,8 @@
 				B1B7BFA017340B4C0060D38C /* LSHomeViewController.xib in Resources */,
 				B1B7BFAE173419890060D38C /* LSPasswordPickerCell.xib in Resources */,
 				B1B7BFB4173424280060D38C /* LSPasswordPickerViewController.xib in Resources */,
+				B1B7BFB7173434190060D38C /* color@2x.png in Resources */,
+				B1B7BFBB1734345E0060D38C /* color.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +399,8 @@
 				B1B7BF9F17340B4C0060D38C /* LSHomeViewController.xib in Resources */,
 				B1B7BFAD173419890060D38C /* LSPasswordPickerCell.xib in Resources */,
 				B1B7BFB3173424280060D38C /* LSPasswordPickerViewController.xib in Resources */,
+				B1B7BFB6173434190060D38C /* color@2x.png in Resources */,
+				B1B7BFBA1734345E0060D38C /* color.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

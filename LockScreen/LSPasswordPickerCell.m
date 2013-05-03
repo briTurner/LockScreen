@@ -11,6 +11,17 @@
 
 @interface LSPasswordPickerCell () {
     LSPasswordPickerCellAttribute _currentAttribute;
+    __weak IBOutlet UIButton *_colorButton;
+    __weak IBOutlet UIButton *_sizeButton;
+    __weak IBOutlet UIButton *_shapeButton;
+    
+    UIImage *_sizeImageSmall;
+    UIImage *_sizeImageMedium;
+    UIImage *_sizeImageLarge;
+    
+    UIImage *_shapeImageCircle;
+    UIImage *_shapeImageSquare;
+    UIImage *_shapeImageTriangle;
 }
 
 @end
@@ -24,6 +35,26 @@
         
     }
     return self;
+}
+
+- (void)setColor:(LSPasswordCharacterColor)color {
+    _color = color;
+    switch (_color) {
+        case LSPasswordCharacterColorNone:
+            [_colorButton setBackgroundColor:[UIColor clearColor]];
+            break;
+        case LSPasswordCharacterColorBlue:
+            [_colorButton setBackgroundColor:[UIColor blueColor]];
+            break;
+        case LSPasswordCharacterColorGreen:
+            [_colorButton setBackgroundColor:[UIColor greenColor]];
+            break;
+        case LSPasswordCharacterColorRed:
+            [_colorButton setBackgroundColor:[UIColor redColor]];
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)buttonPressed:(id)sender {
