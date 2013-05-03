@@ -9,6 +9,7 @@
 #import "LSHomeViewController.h"
 #import "LSLockScreenViewController.h"
 #import "LSPassword.h"
+#import "LSPasswordCharacter.h"
 
 @interface LSHomeViewController () {
     LSPassword *_masterPassword;
@@ -25,7 +26,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        _masterPassword = [[LSPassword alloc] init];
+        [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeSmall shape:LSPasswordCharacterShapeSquare]];
+                [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeSmall shape:LSPasswordCharacterShapeTriangle]];
+                [_masterPassword addPasswordCharacter:[LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone size:LSPasswordCharacterSizeMedium shape:LSPasswordCharacterShapeNone]];
     }
     return self;
 }

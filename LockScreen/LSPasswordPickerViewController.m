@@ -16,6 +16,8 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
     LSPassword *_password;
     LSPasswordPickerCellAttribute _attribute;
     NSIndexPath *_indexPathForCell;
+    
+    IBOutlet UIView *_headerView;
 }
 
 @end
@@ -37,6 +39,7 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self tableView] registerNib:[UINib nibWithNibName:@"LSPasswordPickerCell" bundle:nil] forCellReuseIdentifier:LSPasswordPickerCellID];
+    [[self tableView] setTableHeaderView:_headerView];
 }
 
 - (IBAction)addButtonPressed:(id)sender {
@@ -76,6 +79,7 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
 }
 
 #pragma mark - TableView Datasource/Delegate
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger count = [[_password passwordCharacters] count];
     return count;
@@ -89,7 +93,7 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
     [cell setButtonSelectionBlock:^(LSPasswordPickerCell *cell, LSPasswordPickerCellAttribute attribute) {
         [self presentActionSheetForAttribute:attribute forCellAtIndexPath:[tableView indexPathForCell:cell]];
     }];
-    
+    [[cell orderLabel] setText:[NSString stringWithFormat:@"%i", [indexPath row]]];
     [cell setColor:[character color]];
     [cell setSize:[character size]];
     [cell setShape:[character shape]];
