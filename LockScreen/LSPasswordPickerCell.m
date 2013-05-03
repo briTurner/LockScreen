@@ -49,6 +49,10 @@
 }
 
 - (void)setup {
+    _color = LSPasswordCharacterColorNone;
+    _size = LSPasswordCharacterSizeNone;
+    _shape = LSPasswordCharacterShapeNone;
+    
     _sizeImageNone = [UIImage imageNamed:@"sizeNone"];
     _sizeImageSmall = [UIImage imageNamed:@"sizeSmall"];
     _sizeImageMedium = [UIImage imageNamed:@"sizeMedium"];

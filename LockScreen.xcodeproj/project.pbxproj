@@ -91,9 +91,9 @@
 		B1B1E5111734456300DEB0E8 /* shapeSquare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shapeSquare@2x.png"; sourceTree = "<group>"; };
 		B1B1E5121734456300DEB0E8 /* shapeTriangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shapeTriangle@2x.png"; sourceTree = "<group>"; };
 		B1B1E519173445E500DEB0E8 /* shapeNone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shapeNone@2x.png"; sourceTree = "<group>"; };
-		B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSHomeViewController.h; sourceTree = "<group>"; };
-		B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSHomeViewController.m; sourceTree = "<group>"; };
-		B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSHomeViewController.xib; sourceTree = "<group>"; };
+		B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSHomeViewController.h; path = ../LockScreen/LSHomeViewController.h; sourceTree = "<group>"; };
+		B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSHomeViewController.m; path = ../LockScreen/LSHomeViewController.m; sourceTree = "<group>"; };
+		B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LSHomeViewController.xib; path = ../LockScreen/LSHomeViewController.xib; sourceTree = "<group>"; };
 		B1B7BFA117340EBD0060D38C /* LSPasswordPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPasswordPickerViewController.h; sourceTree = "<group>"; };
 		B1B7BFA217340EBD0060D38C /* LSPasswordPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPasswordPickerViewController.m; sourceTree = "<group>"; };
 		B1B7BFA8173419770060D38C /* LSPasswordPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPasswordPickerCell.h; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 				B1E4192F1718882500B63C2D /* Util */,
 			);
 			name = "LockScreen Library";
+			path = ../LockScreen;
 			sourceTree = "<group>";
 		};
 		B1B7BFB81734341D0060D38C /* Resources */ = {
@@ -241,9 +242,8 @@
 		B1E7C0BF168A576000013CCB = {
 			isa = PBXGroup;
 			children = (
-				B1E7C0D4168A576000013CCB /* LockScreen */,
-				B1E4188E171783CD00B63C2D /* LSTest */,
 				B1FB4F6C1720954B0056156A /* LSLockScreen */,
+				B1E4188E171783CD00B63C2D /* LSTest */,
 				B1E7C0CD168A576000013CCB /* Frameworks */,
 				B1E7C0CB168A576000013CCB /* Products */,
 			);
@@ -270,18 +270,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B1E7C0D4168A576000013CCB /* LockScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B1B7BF9917340B260060D38C /* LockScreen Library */,
-				B1E7C0D5168A576000013CCB /* Supporting Files */,
-				B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */,
-				B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */,
-				B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */,
-			);
-			path = LockScreen;
-			sourceTree = "<group>";
-		};
 		B1E7C0D5168A576000013CCB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +284,7 @@
 				B1E7C0E4168A576000013CCB /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = ../LockScreen;
 			sourceTree = "<group>";
 		};
 		B1E7C0EE168A577E00013CCB /* Model */ = {
@@ -325,6 +314,11 @@
 		B1FB4F6C1720954B0056156A /* LSLockScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B1B7BF9917340B260060D38C /* LockScreen Library */,
+				B1E7C0D5168A576000013CCB /* Supporting Files */,
+				B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */,
+				B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */,
+				B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */,
 				B1FB4F6D1720954B0056156A /* Supporting Files */,
 			);
 			path = LSLockScreen;

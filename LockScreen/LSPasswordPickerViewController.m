@@ -73,7 +73,6 @@ NSString * const LSPasswordPickerCellID = @"LSPasswordPickerCellID";
         default:
             break;
     }
-    
 }
 
 #pragma mark - TableView Datasource/Delegate
