@@ -18,6 +18,14 @@
 		B194DEDE171F954100F6E633 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B194DEDC171F91D200F6E633 /* QuartzCore.framework */; };
 		B194DEE2171F976B00F6E633 /* LSDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B194DEE1171F976B00F6E633 /* LSDropZoneView.m */; };
 		B194DEE3171F976B00F6E633 /* LSDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B194DEE1171F976B00F6E633 /* LSDropZoneView.m */; };
+		B1B1E508173444E800DEB0E8 /* sizeMedium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E504173444E800DEB0E8 /* sizeMedium@2x.png */; };
+		B1B1E509173444E800DEB0E8 /* sizeMedium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E504173444E800DEB0E8 /* sizeMedium@2x.png */; };
+		B1B1E50A173444E800DEB0E8 /* sizeSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E505173444E800DEB0E8 /* sizeSmall@2x.png */; };
+		B1B1E50B173444E800DEB0E8 /* sizeSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E505173444E800DEB0E8 /* sizeSmall@2x.png */; };
+		B1B1E50C173444E800DEB0E8 /* sizeNone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E506173444E800DEB0E8 /* sizeNone@2x.png */; };
+		B1B1E50D173444E800DEB0E8 /* sizeNone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E506173444E800DEB0E8 /* sizeNone@2x.png */; };
+		B1B1E50E173444E800DEB0E8 /* sizeLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E507173444E800DEB0E8 /* sizeLarge@2x.png */; };
+		B1B1E50F173444E800DEB0E8 /* sizeLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B1E507173444E800DEB0E8 /* sizeLarge@2x.png */; };
 		B1B7BF9D17340B4C0060D38C /* LSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */; };
 		B1B7BF9E17340B4C0060D38C /* LSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */; };
 		B1B7BF9F17340B4C0060D38C /* LSHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */; };
@@ -67,6 +75,10 @@
 		B194DEDC171F91D200F6E633 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B194DEE0171F976B00F6E633 /* LSDropZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDropZoneView.h; sourceTree = "<group>"; };
 		B194DEE1171F976B00F6E633 /* LSDropZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDropZoneView.m; sourceTree = "<group>"; };
+		B1B1E504173444E800DEB0E8 /* sizeMedium@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sizeMedium@2x.png"; sourceTree = "<group>"; };
+		B1B1E505173444E800DEB0E8 /* sizeSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sizeSmall@2x.png"; sourceTree = "<group>"; };
+		B1B1E506173444E800DEB0E8 /* sizeNone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sizeNone@2x.png"; sourceTree = "<group>"; };
+		B1B1E507173444E800DEB0E8 /* sizeLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sizeLarge@2x.png"; sourceTree = "<group>"; };
 		B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSHomeViewController.h; sourceTree = "<group>"; };
 		B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSHomeViewController.m; sourceTree = "<group>"; };
 		B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSHomeViewController.xib; sourceTree = "<group>"; };
@@ -167,6 +179,10 @@
 			children = (
 				B1B7BFB5173434190060D38C /* color@2x.png */,
 				B1B7BFB91734345E0060D38C /* color.png */,
+				B1B1E504173444E800DEB0E8 /* sizeMedium@2x.png */,
+				B1B1E505173444E800DEB0E8 /* sizeSmall@2x.png */,
+				B1B1E506173444E800DEB0E8 /* sizeNone@2x.png */,
+				B1B1E507173444E800DEB0E8 /* sizeLarge@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -384,6 +400,10 @@
 				B1B7BFB4173424280060D38C /* LSPasswordPickerViewController.xib in Resources */,
 				B1B7BFB7173434190060D38C /* color@2x.png in Resources */,
 				B1B7BFBB1734345E0060D38C /* color.png in Resources */,
+				B1B1E509173444E800DEB0E8 /* sizeMedium@2x.png in Resources */,
+				B1B1E50B173444E800DEB0E8 /* sizeSmall@2x.png in Resources */,
+				B1B1E50D173444E800DEB0E8 /* sizeNone@2x.png in Resources */,
+				B1B1E50F173444E800DEB0E8 /* sizeLarge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +421,10 @@
 				B1B7BFB3173424280060D38C /* LSPasswordPickerViewController.xib in Resources */,
 				B1B7BFB6173434190060D38C /* color@2x.png in Resources */,
 				B1B7BFBA1734345E0060D38C /* color.png in Resources */,
+				B1B1E508173444E800DEB0E8 /* sizeMedium@2x.png in Resources */,
+				B1B1E50A173444E800DEB0E8 /* sizeSmall@2x.png in Resources */,
+				B1B1E50C173444E800DEB0E8 /* sizeNone@2x.png in Resources */,
+				B1B1E50E173444E800DEB0E8 /* sizeLarge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
