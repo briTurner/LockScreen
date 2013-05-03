@@ -40,7 +40,7 @@
 }
 
 - (IBAction)testLockScreenButtonPressed:(id)sender {
-    
+    if ([_masterPassword passwordCharacters]) {
     LSLockScreenViewController *vc = [[LSLockScreenViewController alloc] initWithMasterPassword:_masterPassword failureBlock:^{
         NSLog(@"failed to login");
     } successBlock:^{
@@ -53,6 +53,9 @@
     [self presentViewController:vc animated:YES completion:^{
         
     }];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Please select a password before trying to unlock" message:@"You must pick a password before attempting to unlock the screen" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
 }
 
 
