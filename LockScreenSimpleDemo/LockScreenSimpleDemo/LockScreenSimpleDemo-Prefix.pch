@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'LockScreen' target in the 'LockScreen' project
+// Prefix header for all source files of the 'LockScreenSimpleDemo' target in the 'LockScreenSimpleDemo' project
 //
 
 #import <Availability.h>
