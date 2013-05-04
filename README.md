@@ -16,30 +16,30 @@ To Install --
 Using the lock screen is made to be as easy as possible. 
 
 1) Create a master password either progromatically, or allow the user to select their own password. 
-<h1> Creating password Programatically</h1>
-a.1) Create a master password.  
+<h2> Creating password Programatically</h2>
+1) Create a master password.  
 
      LSPassword *_masterPassword = [[LSPassword alloc] init];
 
-a.2) Create each required character, and then add it to the master password. 
+2) Create each required character, and then add it to the master password. 
 
     LSPasswordCharacter *char = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
                                                                                       size:LSPasswordCharacterSizeSmall
                                                                                      shape:LSPasswordCharacterShapeNone];
      [_masterPassword addPasswordCharacter:char];
-<h1> Allowing the user to create passowrd </h1>
-b.1) Create a Password Picker 
+<h2> Allowing the user to create passowrd </h2>
+1) Create a Password Picker 
      
      LSPasswordPickerViewController *vc = [[LSPasswordPickerViewController alloc] initWithPassword:_masterPassword];
 
-b.2) Set yourself as the delegate
+2) Set yourself as the delegate
 
      [vc setDelegate:self];
 
-b.3) present the LSPasswordPicker
+3) present the LSPasswordPicker
     [self presentViewController:vc animated:YES completion:nil];
 
-b.4) Conform to the delegate so you can be notified when the user has finished picking a password
+4) Conform to the delegate so you can be notified when the user has finished picking a password
 
      - (void)passwordPickerViewController:(LSPasswordPickerViewController *)passwordPicker returnedWithPassword:(LSPassword *)password {
           _masterPassword = password;
