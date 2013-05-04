@@ -9,14 +9,13 @@
 #import "LSDropZoneView.h"
 #import "LSPasswordCharacter.h"
 
-const int kMaxCharsPerRow = 6;
-const int kMinSizeOfChar = 53;
+const int kMinSizeOfChar = 50;
+const int kMaxChars = 12;
 
 
 @interface LSDropZoneView () {
     NSMutableArray *_characters;
     NSMutableArray *_characterViews;
-    int maxCharacters;
 }
 
 
@@ -47,14 +46,15 @@ const int kMinSizeOfChar = 53;
 }
 
 - (void)layoutSubviews {
-    maxCharacters = kMaxCharsPerRow * (int)([self frame].size.height / kMinSizeOfChar);
+    float width = [self frame].size.width;
+    int maxCharactersPerRow =  floor(width / kMinSizeOfChar);
+    
     if ([_characterViews count]) {
-        int numberOfRows = ceil([_characterViews count] / (float)kMaxCharsPerRow);
-        int charWidth = MAX(MIN(320 / [_characterViews count], 100), kMinSizeOfChar);
-        
+        int numberOfRows = ceil([_characterViews count] / (float)maxCharactersPerRow);
+        int charWidth = MAX(MIN(width / [_characterViews count], 100), kMinSizeOfChar);
         int index = 0;
         for (int y = 0; y < numberOfRows; y++) {
-            for (int x = 0; x < kMaxCharsPerRow; x++) {
+            for (int x = 0; x < maxCharactersPerRow; x++) {
                 if (index >= [_characterViews count])
                     break;
                 UIImageView *characterImageView = [_characterViews objectAtIndex:index];
@@ -68,12 +68,12 @@ const int kMinSizeOfChar = 53;
 }
 
 - (BOOL)addCharacter:(LSPasswordCharacter *)character fromRect:(CGRect)rect {
-    if ([_characters count] < maxCharacters) {
-    [_characters addObject:character];
-    UIImageView *characterImageView = [[UIImageView alloc] initWithImage:[character imageForPasswordCharacter]];
-    [characterImageView setFrame:rect];
-    [_characterViews addObject:characterImageView];
-    [self addSubview:characterImageView];
+    if ([_characters count] < kMaxChars) {
+        [_characters addObject:character];
+        UIImageView *characterImageView = [[UIImageView alloc] initWithImage:[character imageForPasswordCharacter]];
+        [characterImageView setFrame:rect];
+        [_characterViews addObject:characterImageView];
+        [self addSubview:characterImageView];
         return YES;
     } else {
         return NO;
@@ -90,7 +90,7 @@ const int kMinSizeOfChar = 53;
             [imageView setAlpha:0];
         } completion:^(BOOL finished) {
             [imageView removeFromSuperview];
-        }];   
+        }];
     }
 }
 
