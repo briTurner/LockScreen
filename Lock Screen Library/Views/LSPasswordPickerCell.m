@@ -15,12 +15,12 @@
     __weak IBOutlet UIButton *_sizeButton;
     __weak IBOutlet UIButton *_shapeButton;
     
-    UIImage *_sizeImageNone;
+    UIImage *_imageNone;
+    
     UIImage *_sizeImageSmall;
     UIImage *_sizeImageMedium;
     UIImage *_sizeImageLarge;
     
-    UIImage *_shapeImageNone;
     UIImage *_shapeImageCircle;
     UIImage *_shapeImageSquare;
     UIImage *_shapeImageTriangle;
@@ -53,12 +53,11 @@
     _size = LSPasswordCharacterSizeNone;
     _shape = LSPasswordCharacterShapeNone;
     
-    _sizeImageNone = [UIImage imageNamed:@"sizeNone"];
+    _imageNone = [UIImage imageNamed:@"none"];
     _sizeImageSmall = [UIImage imageNamed:@"sizeSmall"];
     _sizeImageMedium = [UIImage imageNamed:@"sizeMedium"];
     _sizeImageLarge = [UIImage imageNamed:@"sizeLarge"];
     
-    _shapeImageNone = [UIImage imageNamed:@"shapeNone"];
     _shapeImageTriangle = [UIImage imageNamed:@"shapeTriangle"];
     _shapeImageSquare = [UIImage imageNamed:@"shapeSquare"];
     _shapeImageCircle = [UIImage imageNamed:@"shapeCircle"];
@@ -68,9 +67,11 @@
 
 - (void)setColor:(LSPasswordCharacterColor)color {
     _color = color;
+    [_colorButton setBackgroundImage:[UIImage imageNamed:@"color"] forState:UIControlStateNormal];
+            [_colorButton setBackgroundColor:[UIColor clearColor]];
     switch (_color) {
         case LSPasswordCharacterColorNone:
-            [_colorButton setBackgroundColor:[UIColor clearColor]];
+            [_colorButton setBackgroundImage:_imageNone forState:UIControlStateNormal];
             break;
         case LSPasswordCharacterColorBlue:
             [_colorButton setBackgroundColor:[UIColor blueColor]];
@@ -90,7 +91,7 @@
     _size = size;
     switch (_size) {
         case LSPasswordCharacterSizeNone:
-            [_sizeButton setBackgroundImage:_sizeImageNone forState:UIControlStateNormal];
+            [_sizeButton setBackgroundImage:_imageNone forState:UIControlStateNormal];
             break;
         case LSPasswordCharacterSizeSmall:
             [_sizeButton setBackgroundImage:_sizeImageSmall forState:UIControlStateNormal];
@@ -110,7 +111,7 @@
     _shape = shape;
     switch (_shape) {
         case LSPasswordCharacterShapeNone:
-            [_shapeButton setBackgroundImage:_shapeImageNone forState:UIControlStateNormal];
+            [_shapeButton setBackgroundImage:_imageNone forState:UIControlStateNormal];
             break;
         case LSPasswordCharacterShapeCircle:
             [_shapeButton setBackgroundImage:_shapeImageCircle forState:UIControlStateNormal];

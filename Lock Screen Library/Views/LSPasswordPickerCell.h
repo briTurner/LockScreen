@@ -18,6 +18,7 @@ typedef enum {
 
 @interface LSPasswordPickerCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (nonatomic) LSPasswordCharacterColor color;
 @property (nonatomic) LSPasswordCharacterShape shape;
 @property (nonatomic) LSPasswordCharacterSize size;

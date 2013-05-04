@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LSPasswordCharacter.h"
 
+#define shadowOffset 5
 int sizeConst = 20;
 
 @implementation LSImageFactory
@@ -26,6 +27,7 @@ int sizeConst = 20;
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
     UIBezierPath *outlines = [[UIBezierPath alloc] init];
+    UIBezierPath *outlinesShadow = [[UIBezierPath alloc] init];
     
     CGPoint center = CGPointMake(50, 50);
     CGFloat offset = sizeConst * sizeMultiplier;
@@ -39,6 +41,12 @@ int sizeConst = 20;
                 [outlines moveToPoint:CGPointMake(50 + offset, 50)];
                 [outlines addArcWithCenter:CGPointMake(50, 50) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
                 [outlines closePath];
+                
+                if ([multiplier floatValue] > sizeMultiplier) {
+                [outlinesShadow moveToPoint:CGPointMake(50 + offset + shadowOffset, 50 + shadowOffset)];
+                [outlinesShadow addArcWithCenter:CGPointMake(50 + shadowOffset, 50 + shadowOffset) radius:offset startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+                [outlinesShadow closePath];
+                }
             }
             break;
         case LSPasswordCharacterShapeTriangle: {
@@ -54,6 +62,13 @@ int sizeConst = 20;
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
                 [outlines addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
                 [outlines closePath];
+                
+                if ([multiplier floatValue] > sizeMultiplier) {
+                    [outlinesShadow moveToPoint:CGPointMake(center.x + shadowOffset, center.y + offset + shadowOffset)];
+                    [outlinesShadow addLineToPoint:CGPointMake(center.x + offset + shadowOffset, center.y - offset + shadowOffset)];
+                    [outlinesShadow addLineToPoint:CGPointMake(center.x - offset + shadowOffset, center.y - offset + shadowOffset)];
+                    [outlinesShadow closePath];
+                }
             }
             break;
         }
@@ -73,6 +88,15 @@ int sizeConst = 20;
                 [outlines addLineToPoint:CGPointMake(center.x + offset, center.y - offset)];
                 [outlines addLineToPoint:CGPointMake(center.x - offset, center.y - offset)];
                 [outlines closePath];
+                
+                if ([multiplier floatValue] > sizeMultiplier) {
+                    [outlinesShadow moveToPoint:CGPointMake(center.x - offset + shadowOffset, center.y + offset + shadowOffset)];
+                    [outlinesShadow addLineToPoint:CGPointMake(center.x + offset + shadowOffset, center.y + offset + shadowOffset)];
+                    
+                    [outlinesShadow addLineToPoint:CGPointMake(center.x + offset + shadowOffset, center.y - offset + shadowOffset)];
+                    [outlinesShadow addLineToPoint:CGPointMake(center.x - offset + shadowOffset, center.y - offset + shadowOffset)];
+                    [outlinesShadow closePath];
+                }
             }
             break;
         default:
@@ -104,6 +128,9 @@ int sizeConst = 20;
     CGFloat dashArray[] = {5,4};
     CGContextSetLineDash(context, 3, dashArray, 2);
     [outlines stroke];
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor grayColor] CGColor]);
+    [outlinesShadow stroke];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
