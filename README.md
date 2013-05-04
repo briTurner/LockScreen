@@ -16,7 +16,7 @@ To Install --
 Using the lock screen is made to be as easy as possible. 
 
 1) Create a master password either progromatically, or allow the user to select their own password. 
-
+<h1> Creating password Programatically</h1>
 a.1) Create a master password.  
 
      LSPassword *_masterPassword = [[LSPassword alloc] init];
@@ -27,7 +27,7 @@ a.2) Create each required character, and then add it to the master password.
                                                                                       size:LSPasswordCharacterSizeSmall
                                                                                      shape:LSPasswordCharacterShapeNone];
      [_masterPassword addPasswordCharacter:char];
-
+<h1> Allowing the user to create passowrd </h1>
 b.1) Create a Password Picker 
      
      LSPasswordPickerViewController *vc = [[LSPasswordPickerViewController alloc] initWithPassword:_masterPassword];
