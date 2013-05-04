@@ -16,6 +16,7 @@ To Install --
 Using the lock screen is made to be as easy as possible. 
 
 1) Create a master password either progromatically, or allow the user to select their own password. 
+
 a.1) Create a master password.  
 
      LSPassword *_masterPassword = [[LSPassword alloc] init];
