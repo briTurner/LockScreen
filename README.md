@@ -16,7 +16,7 @@ Using the lock screen is made to be as easy as possible.
     LSPasswordCharacter *char = [LSPasswordCharacter characterWithCharacterColor:LSPasswordCharacterColorNone
                                                                                       size:LSPasswordCharacterSizeSmall
                                                                                      shape:LSPasswordCharacterShapeNone];
-     _masterPassword addPasswordCharacter:char];
+     [_masterPassword addPasswordCharacter:char];
 
 3) Create the LSLockScreenViewController passing in the master password, as well as a success block and a failure block.
 
