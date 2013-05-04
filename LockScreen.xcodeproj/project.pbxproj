@@ -38,6 +38,7 @@
 		B1B52BBA17345D7D00A4C286 /* shapeNone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B52BB617345D7D00A4C286 /* shapeNone@2x.png */; };
 		B1B52BBC1734745C00A4C286 /* none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B52BBB1734745C00A4C286 /* none@2x.png */; };
 		B1B52BBD1734745C00A4C286 /* none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B52BBB1734745C00A4C286 /* none@2x.png */; };
+		B1B52C3A1735A58200A4C286 /* LSPasswordCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B52C391735A58200A4C286 /* LSPasswordCharacterTests.m */; };
 		B1B7BF9D17340B4C0060D38C /* LSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */; };
 		B1B7BF9E17340B4C0060D38C /* LSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */; };
 		B1B7BF9F17340B4C0060D38C /* LSHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */; };
@@ -58,7 +59,6 @@
 		B1E4188C171783CD00B63C2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0CE168A576000013CCB /* UIKit.framework */; };
 		B1E4188D171783CD00B63C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E7C0D0168A576000013CCB /* Foundation.framework */; };
 		B1E41893171783CD00B63C2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1E41891171783CD00B63C2D /* InfoPlist.strings */; };
-		B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */; };
 		B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0EC168A577B00013CCB /* LSPasswordCharacter.m */; };
 		B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E7C0F7168A59E200013CCB /* LSPassword.m */; };
 		B1E418A01717884800B63C2D /* LSPasswordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E4189F1717884800B63C2D /* LSPasswordTests.m */; };
@@ -97,6 +97,8 @@
 		B1B52BB517345D7D00A4C286 /* colorNone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorNone2@2x.png"; sourceTree = "<group>"; };
 		B1B52BB617345D7D00A4C286 /* shapeNone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shapeNone@2x.png"; sourceTree = "<group>"; };
 		B1B52BBB1734745C00A4C286 /* none@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "none@2x.png"; sourceTree = "<group>"; };
+		B1B52C381735A58200A4C286 /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPasswordCharacterTests.h; sourceTree = "<group>"; };
+		B1B52C391735A58200A4C286 /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPasswordCharacterTests.m; sourceTree = "<group>"; };
 		B1B7BF9A17340B4C0060D38C /* LSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSHomeViewController.h; path = ../LockScreen/LSHomeViewController.h; sourceTree = "<group>"; };
 		B1B7BF9B17340B4C0060D38C /* LSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSHomeViewController.m; path = ../LockScreen/LSHomeViewController.m; sourceTree = "<group>"; };
 		B1B7BF9C17340B4C0060D38C /* LSHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LSHomeViewController.xib; path = ../LockScreen/LSHomeViewController.xib; sourceTree = "<group>"; };
@@ -108,8 +110,6 @@
 		B1B7BFB2173424280060D38C /* LSPasswordPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSPasswordPickerViewController.xib; sourceTree = "<group>"; };
 		B1B7BFB5173434190060D38C /* color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color@2x.png"; sourceTree = "<group>"; };
 		B1B7BFB91734345E0060D38C /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
-		B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPasswordCharacterTests.h; path = ../LockScreen/LSPasswordCharacterTests.h; sourceTree = "<group>"; };
-		B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPasswordCharacterTests.m; path = ../LockScreen/LSPasswordCharacterTests.m; sourceTree = "<group>"; };
 		B1E418831717831C00B63C2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B1E4188A171783CD00B63C2D /* LSTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E41890171783CD00B63C2D /* LSTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSTest-Info.plist"; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 		B1E4188E171783CD00B63C2D /* LSTest */ = {
 			isa = PBXGroup;
 			children = (
-				B1E418801717828700B63C2D /* LSPasswordCharacterTests.h */,
-				B1E418811717828700B63C2D /* LSPasswordCharacterTests.m */,
+				B1B52C381735A58200A4C286 /* LSPasswordCharacterTests.h */,
+				B1B52C391735A58200A4C286 /* LSPasswordCharacterTests.m */,
 				B1E4189E1717884800B63C2D /* LSPasswordTests.h */,
 				B1E4189F1717884800B63C2D /* LSPasswordTests.m */,
 				B1E4192C1718779400B63C2D /* LSUtilsTest.h */,
@@ -481,7 +481,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E4189B1717842B00B63C2D /* LSPasswordCharacterTests.m in Sources */,
 				B1E4189C1717843900B63C2D /* LSPasswordCharacter.m in Sources */,
 				B1E4189D1717843C00B63C2D /* LSPassword.m in Sources */,
 				B1E418A01717884800B63C2D /* LSPasswordTests.m in Sources */,
@@ -493,6 +492,7 @@
 				B1B7BF9E17340B4C0060D38C /* LSHomeViewController.m in Sources */,
 				B1B7BFA517340EBD0060D38C /* LSPasswordPickerViewController.m in Sources */,
 				B1B7BFAB173419770060D38C /* LSPasswordPickerCell.m in Sources */,
+				B1B52C3A1735A58200A4C286 /* LSPasswordCharacterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
