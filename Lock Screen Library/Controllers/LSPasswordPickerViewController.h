@@ -11,7 +11,7 @@
 
 @protocol LSPasswordPickerViewControllerDelegate;
 
-@interface LSPasswordPickerViewController : UIViewController <UIActionSheetDelegate>
+@interface LSPasswordPickerViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithPassword:(LSPassword *)password;
 - (IBAction)addButtonPressed:(id)sender;
